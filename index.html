@@ -551,21 +551,19 @@ async function openRoute(){if(flipping)return;const card=cards[i],RMm=matchMedia
  sheet.classList.add("instant","open");sheet.style.opacity="0";document.body.classList.add("lock");sheet.scrollTop=0;
  const topH=(sheet.querySelector(".top")||{}).offsetHeight||(innerWidth<600?58:66);
  const hb=h2?h2.getBoundingClientRect():{left:0,top:topH,width:innerWidth,height:Math.min(innerWidth*9/16,innerHeight-topH)};
- const scrim=document.createElement("div");scrim.className="scrim";document.body.appendChild(scrim);
- const c=document.createElement("div");c.className="flipc";const im=src.cloneNode();im.removeAttribute("style");im.className="";c.appendChild(im);
+  const c=document.createElement("div");c.className="flipc";const im=src.cloneNode();im.removeAttribute("style");im.className="";c.appendChild(im);
  Object.assign(c.style,{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",borderRadius:"10px"});
  document.body.appendChild(c);card.style.visibility="hidden";
  const D=900,E="cubic-bezier(.65,0,.25,1)";
- scrim.animate([{opacity:0},{opacity:1}],{duration:D*.7,easing:"ease-out",fill:"forwards"});
+ const sa=sheet.animate([{opacity:0},{opacity:1}],{duration:D*.55,delay:D*.35,easing:"ease-out",fill:"forwards"});
  im.animate([{transform:"scale(1.08)"},{transform:"scale(1)"}],{duration:D,easing:E,fill:"forwards"});
  const an=c.animate([{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",borderRadius:"10px",boxShadow:"0 30px 60px rgba(0,0,0,.35)"},
    {left:hb.left+"px",top:hb.top+"px",width:hb.width+"px",height:hb.height+"px",borderRadius:"0px",boxShadow:"0 0 0 rgba(0,0,0,0)"}],{duration:D,easing:E,fill:"forwards"});
  await an.finished;
- sheet.style.opacity="";
+ sheet.style.opacity="";sa.cancel();
  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
  sheet.classList.remove("instant");
  c.animate([{opacity:1},{opacity:0}],{duration:220,fill:"forwards"}).onfinish=()=>c.remove();
- scrim.animate([{opacity:1},{opacity:0}],{duration:260,fill:"forwards"}).onfinish=()=>scrim.remove();
  card.style.visibility="";flipping=false;
  sheet.querySelectorAll(".stmt,.sc2").forEach((el,n)=>el.animate([{opacity:0,transform:"translateY(30px)"},{opacity:1,transform:"none"}],{duration:700,delay:n*80,easing:"cubic-bezier(.2,.8,.15,1)",fill:"backwards"}));
  setTimeout(()=>$("#bk")&&$("#bk").focus({preventScroll:true}),300);
