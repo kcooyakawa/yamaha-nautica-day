@@ -318,6 +318,10 @@ button{font:inherit;cursor:pointer;color:inherit}
 .snd .yt{width:200px;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.3);display:none}
 .snd.on .yt{display:block}.snd .yt iframe{width:100%;height:100%;border:0;display:block}
 @media(max-width:600px){.snd .yt{width:150px}}
+
+.lgs{display:flex;align-items:center;gap:14px}.lgs img{height:22px;width:auto;display:block}.lgs img.ya{height:24px}.lgs i{font-style:normal;color:var(--org);font-weight:700}
+.lgs .dk2{display:none}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .lgs .lt{display:none}:root:not([data-theme=light]) .lgs .dk2{display:block}}
+:root[data-theme=dark] .lgs .lt{display:none}:root[data-theme=dark] .lgs .dk2{display:block}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
 .fx{display:none;position:fixed;right:14px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:26px;line-height:1;box-shadow:0 12px 28px rgba(10,20,40,.35)}body.lock .fx{display:block}@media(min-width:701px) and (hover:hover){body.lock .fx{display:none}}
 .sheet .top{padding-top:max(12px,env(safe-area-inset-top))}
@@ -326,7 +330,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 </head>
 <body>
 <header class="hero" id="hero" tabindex="-1">
-  <div class="bar"><span><b>STAP</b><i>×</i><b>YAMAHA</b></span><span>Náutica Day · 26 de novembro · Refúgio Cheiro de Mato</span></div>
+  <div class="bar"><span class="lgs"><img class="lt" src="sf-navy.svg" alt="Stap Feelings"><img class="dk2" src="sf-white.svg" alt="Stap Feelings"><i>×</i><img class="lt ya" src="ya-navy.png" alt="Yamaha"><img class="dk2 ya" src="ya-white.png" alt="Yamaha"></span><span>Náutica Day · 26 de novembro · Refúgio Cheiro de Mato</span></div>
   <div class="intro ctr"><p class="kk">3 rotas de key visual</p><h1>Escolha a <em>rota.</em></h1><p class="sub"><span class="dk">Use as setas ou clique no KV para abrir a defesa e as peças.</span><span class="mb">Deslize e toque no KV para abrir a defesa e as peças.</span></p></div>
   <div class="stage"><div id="ring"></div></div>
   <button class="side l" id="sl" aria-label="Rota anterior">←</button><button class="side r" id="sr" aria-label="Próxima rota">→</button>
@@ -353,10 +357,9 @@ button{font:inherit;cursor:pointer;color:inherit}
    <ul><li><b>Vira ativação</b> Casco, píer, boias, caixas e bandeirolas no Refúgio.</li><li><b>Pintura ao vivo</b> Com gabarito real, dá para pintar na hora, diante dos convidados.</li><li><b>Uma cor, sem degradê</b> Versátil e fiel à aplicação em silk, bordado, laser e vinil.</li><li><b>Liga ao produto</b> Parece marcação de fábrica de uma WaveRunner.</li></ul></div>
   <div class="rv"><div class="pic"><img src="stencil.jpg" alt="Título Náutica Day em stencil no casco molhado de um barco navy" data-plx=".1"></div></div>
 </div></section>
-<p class="ft">Stap · Direção de arte: Kco Oyakawa · Peças apresentadas como mockups de conceito.</p>
+<p class="ft">Stap Feelings · Direção de arte: Kco Oyakawa · Peças apresentadas como mockups de conceito.</p>
 
 <button class="fx" id="fx" aria-label="Fechar rota">×</button>
-<div class="snd" id="snd"><button id="sndb" aria-pressed="false"><span class="eq"><i></i><i></i><i></i></span><span id="sndt">Trilha</span></button><div class="yt" id="yt"></div></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Rota de key visual"></div>
 
 <script>
@@ -564,9 +567,6 @@ setTimeout(()=>{try{if(!open)hero.focus({preventScroll:true})}catch(e){}},300);
 (async()=>{try{await pull();setInterval(()=>{if(!document.hidden)pull().catch(()=>{})},20000)}catch(e){dbState="off";refreshVote()}})();
 }
 
-{const b=document.getElementById("sndb"),w=document.getElementById("snd"),y=document.getElementById("yt");
- b.onclick=()=>{const on=!w.classList.contains("on");w.classList.toggle("on",on);b.setAttribute("aria-pressed",on);document.getElementById("sndt").textContent=on?"Pausar":"Trilha";
-  y.innerHTML=on?'<iframe src="https://www.youtube.com/embed/oo8ugD8KFA4?autoplay=1&loop=1&playlist=oo8ugD8KFA4&controls=1&playsinline=1" title="Trilha" allow="autoplay; encrypted-media" allowfullscreen></iframe>':"";}}
 </script>
 </body>
 </html>
