@@ -467,18 +467,15 @@ function voteBox(){const k=KV[i],liked=!!ls.get("nd-like-"+k.id),c=cnt(k.id);
   <div class="tal">${KV.map((x,n)=>`<div class="row ${ls.get("nd-like-"+x.id)?'me':''}"><span>Rota ${n+1} · ${x.name}</span><b>${dbState==="ok"?cnt(x.id):'–'} ♥</b></div>`).join('')}</div></div>`}
 function bindVote(){const b=$("#vb");if(b)b.onclick=()=>cast(KV[i].id)}
 
-const PCS={b:[
- {img:"mkb-credencial.jpg",t:"Credencial",d:"O KV vira a frente da credencial: título em stencil sobre o mar aéreo, nome em destaque e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"mkb-cordao.jpg",t:"Cordão dupla face",d:"Frente navy com NÁUTICA gigante vazando pelas bordas. Verso laranja com NÁUTICA DAY em pattern diagonal. Ao girar no pescoço, o cordão alterna entre as duas faces.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
- {img:"mkb-sacola.jpg",t:"Sacola",d:"Lona navy com alças laranja. O título em stencil com textura de tinta, e as coordenadas do Refúgio na base, como marcação de carga.",sp:[["Técnica","silk 2 cores"],["Base","lona 100% algodão"]]},
- {img:"mkb-embarque.jpg",t:"Cartão de embarque",d:"No lugar do convite, uma etiqueta kraft numerada, com horário e coordenadas. Vai amarrada à sacola do kit.",sp:[["Papel","kraft 300 g"],["Acabamento","ilhós e cordão navy"]]}],
-a:[{img:"mka-credencial.jpg",t:"Credencial",d:"Fundo branco com o splash de aquarela do KV, o título exato da rota e a faixa laranja por categoria. As bandeiras YAMAHA DAY assinam o nome.",sp:[["Formato","PVC 9,5 × 14 cm"],["Cordão","cetim branco"]]},
- {img:"mka-sacola.jpg",t:"Sacola",d:"Lona crua com alças laranja. O título navy e laranja no alto e a aquarela do mar entrando pela base, como no KV.",sp:[["Técnica","sublimação + silk"],["Base","lona 100% algodão"]]}],
-c:[{img:"mkc-cordao.jpg",t:"Cordão e credencial",d:"Cordão navy com a assinatura Yamaha e o selo das tarjas. A credencial leva o mar profundo, a faixa de categoria e as bandeiras.",sp:[["Formato","PVC 9,5 × 14 cm"],["Fita","poliéster 20 mm"]]},
- {img:"mkc-sacola.jpg",t:"Sacola",d:"Navy com alças laranja e as tarjas inclinadas como selo. As coordenadas do Refúgio fecham a composição.",sp:[["Técnica","silk 3 cores"]]},
- {img:"mkc-caixa.jpg",t:"Kit de bordo",d:"Caixa navy com toalha, dry pouch e o cartão do evento. As tarjas viram etiqueta de embarque.",sp:[["Conceito","seeding, não release"]]},
- {img:"mkc-garrafa.jpg",t:"Garrafa térmica",d:"Navy fosca com o selo das tarjas e as coordenadas gravadas. Uma peça de uso diário depois do evento.",sp:[["Técnica","laser + silk"]]},
- {img:"mkc-bone.jpg",t:"Boné",d:"Navy com a tarja laranja bordada na lateral. A tarja funciona como patch.",sp:[["Técnica","bordado + patch"]]}]};
+const PCS={b:[{img:"pc-b-credencial.jpg",t:"Credencial",d:"O mar aéreo do KV no topo e o título em stencil, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
+ {img:"pc-b-cordao.jpg",t:"Cordão dupla face",d:"Duas faces: frente navy com NÁUTICA gigante vazando, verso laranja com NÁUTICA em pattern diagonal. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-b-sacola.jpg",t:"Sacola do kit",d:"Lona navy com o stencil e as linhas da carta náutica na base, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}],
+a:[{img:"pc-a-credencial.jpg",t:"Credencial",d:"Fundo branco com o splash de aquarela do KV, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
+ {img:"pc-a-cordao.jpg",t:"Cordão dupla face",d:"Duas faces: frente branca com NÁUTICA e a assinatura Yamaha, verso azul com o título em pattern. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-a-sacola.jpg",t:"Sacola do kit",d:"Lona crua com o título navy e laranja e a aquarela do mar entrando pela base, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}],
+c:[{img:"pc-c-credencial.jpg",t:"Credencial",d:"O mar profundo do KV no topo e as tarjas inclinadas, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
+ {img:"pc-c-cordao.jpg",t:"Cordão dupla face",d:"Duas faces: frente navy com NÁUTICA em itálico gigante vazando, verso laranja com as listras de largada. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-c-sacola.jpg",t:"Sacola do kit",d:"Lona navy com as tarjas e as listras laranja de largada no canto, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}]};
 function renderB(keep){const k=KV[i],nx=KV[(i+1)%3];
  sheet.classList.add("rB");
  sheet.innerHTML=`<div class="top"><button id="bk">← Voltar<kbd>Esc</kbd></button><span class="nm">Rota ${i+1} · ${k.name}</span><span class="nv"><button id="rp" aria-label="Rota anterior">←</button><button id="rn" aria-label="Próxima rota">→</button></span></div>
