@@ -304,7 +304,8 @@ button{font:inherit;cursor:pointer;color:inherit}
 .intro.ctr .sub{margin:14px auto 22px;max-width:46ch}@media(min-width:701px){.intro.ctr .sub{display:none}.intro.ctr h1{font-size:clamp(50px,6.4vw,104px)}}
 
 
-.flipc{position:fixed;z-index:80;object-fit:cover;pointer-events:none;transform-origin:0 0;will-change:transform}
+.pc.tall .im{max-width:min(100%,560px);justify-self:center;width:100%}
+.flipc{position:fixed;z-index:80;overflow:hidden;pointer-events:none;background:#000;will-change:left,top,width,height}.flipc img{display:block;width:100%;height:100%;object-fit:cover;will-change:transform}
 .scrim{position:fixed;inset:0;z-index:79;background:var(--bg);pointer-events:none}
 .sheet.rt-a.rB{background:linear-gradient(180deg,color-mix(in srgb,#3aa0e8 22%,var(--bg)) 0,var(--bg) 900px)}
 .sheet.rt-b.rB{background:linear-gradient(180deg,color-mix(in srgb,#0f8a95 24%,var(--bg)) 0,var(--bg) 900px)}
@@ -312,6 +313,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .rt-a .stmt .k,.rt-a .ed .n{color:#2a8fd6}.rt-b .stmt .k{color:#0f9aa6}
 .snd{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:10px}
 .snd button{height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 85%,transparent);backdrop-filter:blur(10px);font-weight:800;font-size:13px;font-stretch:112%;display:flex;align-items:center;gap:8px}
+.snd:not(.on){animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.25),0 0 0 0 rgba(242,106,27,.6)}50%{box-shadow:0 10px 30px rgba(0,0,0,.25),0 0 0 10px rgba(242,106,27,0)}}
 .snd .eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}.snd .eq i{width:3px;height:4px;background:var(--org);border-radius:2px}
 .snd.on .eq i{animation:eq .8s ease-in-out infinite alternate}.snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.4s}
 @keyframes eq{to{height:14px}}
@@ -388,20 +390,6 @@ button{font:inherit;cursor:pointer;color:inherit}
    <ul><li><b>Vira ativação</b> Casco, píer, boias, caixas e bandeirolas no Refúgio.</li><li><b>Pintura ao vivo</b> Com gabarito real, dá para pintar na hora, diante dos convidados.</li><li><b>Uma cor, sem degradê</b> Versátil e fiel à aplicação em silk, bordado, laser e vinil.</li><li><b>Liga ao produto</b> Parece marcação de fábrica de uma WaveRunner.</li></ul></div>
   <div class="rv"><div class="pic"><img src="stencil.jpg" alt="Título Náutica Day em stencil no casco molhado de um barco navy" data-plx=".1"></div></div>
 </div></section>
-<section class="col" id="colecao"><div class="w">
- <div class="hd rv"><div><p class="eyebrow">Coleção Náutica Day</p><h2>Vestir o<br><em>dia na água.</em></h2></div>
-  <div><p>A mesma linguagem dos KVs vira coleção: stencil, carta náutica, rastro em S e bandeiras do código de sinais. Peças pensadas para ser usadas depois do evento, não para ficar na gaveta.</p><div class="flg" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f2"></i><i class="f6"></i><i class="f2"></i></div></div></div>
- <div class="cg">
-  <figure class="ci c-a rv"><img src="col-camisetas.jpg" alt="Duas camisetas: navy com Náutica Day no peito e off-white com a carta náutica e o rastro em S nas costas" loading="lazy"><figcaption><i>01</i><b>Camisetas</b><span>Navy com assinatura no peito e coordenadas; off-white com a carta náutica inteira nas costas, rastro em S e bandeiras YAMAHA DAY.</span></figcaption></figure>
-  <figure class="ci c-b rv"><img src="col-bones.jpg" alt="Três bonés: 5-panel navy, trucker branco e bucket laranja" loading="lazy"><figcaption><i>02</i><b>Bonés</b><span>5-panel navy com patch de borracha, trucker com bandeiras bordadas na lateral e bucket laranja com as coordenadas na aba.</span></figcaption></figure>
-  <figure class="ci c-c rv"><img src="col-garrafa.jpg" alt="Garrafa térmica navy gravada a laser e copo branco" loading="lazy"><figcaption><i>03</i><b>Garrafa</b><span>Inox navy fosco com gravação a laser: stencil vertical, curvas de nível e rosa dos ventos.</span></figcaption></figure>
-  <figure class="ci c-d rv"><img src="col-lycra.jpg" alt="Camisa de lycra UV branca com bandeiras na manga e carta náutica nas costas" loading="lazy"><figcaption><i>04</i><b>Lycra UV</b><span>Para pilotar: manga laranja com o código de sinais e a carta náutica nas costas.</span></figcaption></figure>
-  <figure class="ci c-e rv"><img src="col-acessorios.jpg" alt="Dry bag laranja, bandana, chaveiro flutuante, viseira e protetor solar" loading="lazy"><figcaption><i>05</i><b>Kit de bordo</b><span>Dry bag, bandana, chaveiro flutuante em forma de bandeira, viseira e protetor solar com rótulo do evento.</span></figcaption></figure>
-  <figure class="ci c-f rv"><img src="col-toalha.jpg" alt="Toalha de praia navy com o rastro em S e as bandeiras náuticas" loading="lazy"><figcaption><i>06</i><b>Toalha</b><span>A peça mais gráfica da coleção: o KV inteiro em 1,6 m, com o rastro em S, a profundidade e a coluna de bandeiras.</span></figcaption></figure>
- </div>
- <div class="specs rv"><div><b>PALETA</b><span>Navy, laranja, branco e azul Yamaha</span></div><div><b>TÉCNICAS</b><span>Silk, bordado, laser e sublimação</span></div><div><b>LETTERING</b><span>Stencil em uma cor, sem degradê</span></div><div><b>SISTEMA</b><span>Coordenadas, carta, bandeiras e rosa dos ventos</span></div></div>
- <p class="aiN" style="color:#97a3bb;margin-top:30px;font-size:13px">Imagens geradas por IA para ilustrar a coleção; podem conter erros de texto e detalhe.</p>
-</div></section>
 <p class="ft">Stap Feelings · Direção de arte: Kco Oyakawa · Peças apresentadas como mockups de conceito.</p>
 
 <button class="fx" id="fx" aria-label="Fechar rota">×</button>
@@ -457,7 +445,7 @@ function go(n,user){i=(n+3)%3;layout();lbl();if(open)renderRoute(true);if(user)r
 function restart(){clearInterval(timer);timer=setInterval(()=>{if(!open&&scrollY<innerHeight*.5&&!document.hidden)go(i+1)},6500)}
 ring.addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const n=+c.dataset.n;if(n===i)openRoute();else go(n,true)});
 $("#fx").onclick=()=>closeRoute();$("#sl").onclick=()=>go(i-1,true);$("#sr").onclick=()=>go(i+1,true);
-hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;layout()});
+hero.addEventListener("pointermove",e=>{if(open||flipping)return;const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;layout()});
 hero.addEventListener("pointerleave",()=>{mx=my=0;layout()});
 let tx=null;hero.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passive:true});
 hero.addEventListener("touchend",e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)go(i+(d<0?1:-1),true);tx=null});
@@ -512,18 +500,7 @@ function voteBox(){const k=KV[i],liked=!!ls.get("nd-like-"+k.id),c=cnt(k.id);
   <div class="tal">${KV.map((x,n)=>`<div class="row ${ls.get("nd-like-"+x.id)?'me':''}"><span>Rota ${n+1} · ${x.name}</span><b>${dbState==="ok"?cnt(x.id):'–'} ♥</b></div>`).join('')}</div></div>`}
 function bindVote(){const b=$("#vb");if(b)b.onclick=()=>cast(KV[i].id)}
 
-const PCS={b:[{img:"pc-b-credencial.jpg",t:"Credencial",d:"O mar aéreo do KV no topo e o título em stencil, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"pc-b-cordao.jpg",t:"Cordão dupla face",d:"Na frente, a assinatura Yamaha e as bandeiras YAMAHA DAY perto do mosquetão. Duas faces: frente navy com NÁUTICA gigante vazando, verso laranja com NÁUTICA em pattern diagonal. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
- {img:"pc-b-kit.jpg",t:"Kit de bordo",d:"O kit completo sobre o deck: sacola, credencial, cordão e cartão de embarque numerado, todos com a mesma assinatura Yamaha e o mesmo lettering da rota.",sp:[["Conteúdo","sacola · credencial · cordão · cartão de embarque"]]},
- {img:"pc-b-sacola.jpg",t:"Sacola do kit",d:"Lona navy com o stencil e as linhas da carta náutica na base, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}],
-a:[{img:"pc-a-credencial.jpg",t:"Credencial",d:"Fundo branco com o splash de aquarela do KV, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"pc-a-cordao.jpg",t:"Cordão dupla face",d:"Na frente, a assinatura Yamaha e as bandeiras YAMAHA DAY perto do mosquetão. Duas faces: frente branca com NÁUTICA e a assinatura Yamaha, verso azul com o título em pattern. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
- {img:"pc-a-kit.jpg",t:"Kit de bordo",d:"O kit completo sobre o deck: sacola, credencial, cordão e cartão de embarque numerado, todos com a mesma assinatura Yamaha e o mesmo lettering da rota.",sp:[["Conteúdo","sacola · credencial · cordão · cartão de embarque"]]},
- {img:"pc-a-sacola.jpg",t:"Sacola do kit",d:"Lona crua com o título navy e laranja e a aquarela do mar entrando pela base, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}],
-c:[{img:"pc-c-credencial.jpg",t:"Credencial",d:"O mar profundo do KV no topo e as tarjas inclinadas, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"pc-c-cordao.jpg",t:"Cordão dupla face",d:"Na frente, a assinatura Yamaha e as bandeiras YAMAHA DAY perto do mosquetão. Duas faces: frente navy com NÁUTICA em itálico gigante vazando, verso laranja com as listras de largada. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
- {img:"pc-c-kit.jpg",t:"Kit de bordo",d:"O kit completo sobre o deck: sacola, credencial, cordão e cartão de embarque numerado, todos com a mesma assinatura Yamaha e o mesmo lettering da rota.",sp:[["Conteúdo","sacola · credencial · cordão · cartão de embarque"]]},
- {img:"pc-c-sacola.jpg",t:"Sacola do kit",d:"Lona navy com as tarjas e as listras laranja de largada no canto, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}]};
+const PCS={"a": [{"t": "Credencial", "d": "Fundo branco e o splash de aquarela do KV explodindo no canto, sem foto recortada. Título navy e laranja, nome em destaque, bandeiras YAMAHA DAY e faixa navy por categoria.", "sp": [["Formato", "PVC 9,5 × 14 cm"], ["Categorias", "imprensa · convidado · staff · piloto"]], "tall": 1, "img": "pz-a-credencial.jpg"}, {"t": "Cordões", "d": "Dois modelos: branco com o splash correndo pela fita inteira e NÁUTICA DAY, e azul Yamaha com a assinatura, data, local e a faixa de bandeiras.", "sp": [["Fita", "poliéster 25 mm sublimado"], ["Ferragem", "mosquetão preto fosco + puxador laranja"]], "img": "pz-a-cordao.jpg"}, {"t": "Kit de bordo", "d": "Caixa rígida branca com o splash na tampa. Dentro: sacola, camiseta, boné, garrafa, toalha, óculos, convite, cartão das bandeiras e protetor solar.", "sp": [["Conteúdo", "9 itens"], ["Embalagem", "caixa rígida + sacola de lona"]], "img": "pz-a-kit.jpg"}, {"t": "Camisetas", "d": "Branca com o splash estourando no peito e o título por cima; azul Yamaha com NÁUTICA DAY e a coluna de bandeiras nas costas.", "sp": [["Base", "algodão 200 g, modelagem oversized"], ["Técnica", "silk + DTF para o splash"]], "img": "pz-a-camisetas.jpg"}, {"t": "Boné, viseira e garrafa", "d": "Boné branco com aba laranja, viseira azul com DAY e garrafa térmica laranja com o splash branco envolvendo o corpo.", "sp": [["Garrafa", "inox 750 ml"], ["Boné", "sarja, aba curva"]], "img": "pz-a-bone.jpg"}, {"t": "Toalha", "d": "O KV em escala de praia: a onda de aquarela atravessando a toalha, título gigante e a faixa de bandeiras na base.", "sp": [["Tamanho", "160 × 90 cm"], ["Base", "microfibra sublimada"]], "img": "pz-a-toalha.jpg"}], "b": [{"t": "Credencial", "d": "Navy com as curvas de nível e o rastro em S como desenho gráfico, sem foto recortada. Stencil branco e laranja, painel branco com o nome e faixa laranja por categoria.", "sp": [["Formato", "PVC 9,5 × 14 cm"], ["Categorias", "imprensa · convidado · staff · piloto"]], "tall": 1, "img": "pz-b-credencial.jpg"}, {"t": "Cordões", "d": "Navy com NÁUTICA DAY em stencil, bandeiras e coordenadas; e laranja com a carta náutica em navy. Ferragem preta e puxador de borracha com DAY.", "sp": [["Fita", "poliéster 25 mm sublimado"], ["Ferragem", "mosquetão preto fosco"]], "img": "pz-b-cordao.jpg"}, {"t": "Kit de bordo", "d": "Caixa navy com o stencil e a carta na tampa. Dentro: sacola de lona, camiseta, boné, garrafa gravada, chaveiro flutuante, cartão de embarque, cartão das bandeiras e protetor.", "sp": [["Conteúdo", "9 itens"], ["Embalagem", "caixa rígida navy"]], "img": "pz-b-kit.jpg"}, {"t": "Camisetas", "d": "Navy com a assinatura no peito e as coordenadas; off-white com a carta náutica inteira nas costas, o rastro em S e as bandeiras.", "sp": [["Base", "algodão 200 g, oversized"], ["Técnica", "silk em 2 cores"]], "img": "pz-b-camisetas.jpg"}, {"t": "Bonés", "d": "5-panel navy com patch de borracha e aba laranja com a carta; trucker branco com bandeiras bordadas; bucket laranja com as coordenadas na aba.", "sp": [["Técnica", "bordado + patch emborrachado"]], "img": "pz-b-bone.jpg"}, {"t": "Garrafa", "d": "Inox navy fosco com gravação a laser: stencil vertical, curvas de nível e rosa dos ventos. Copo branco com a faixa de bandeiras.", "sp": [["Garrafa", "inox 750 ml, laser"], ["Copo", "tumbler 500 ml"]], "img": "pz-b-garrafa.jpg"}, {"t": "Lycra UV", "d": "Para quem vai pilotar: manga laranja com o código de sinais, stencil na lateral e a carta náutica nas costas.", "sp": [["Base", "lycra FPU 50+"], ["Técnica", "sublimação total"]], "img": "pz-b-lycra.jpg"}, {"t": "Acessórios", "d": "Dry bag laranja, bandana com o rastro, chaveiro flutuante em forma de bandeira, viseira e protetor solar com rótulo do evento.", "sp": [["Itens", "5 peças"]], "img": "pz-b-acessorios.jpg"}, {"t": "Toalha", "d": "O KV em 1,6 m: o rastro em S sobre a carta, profundidades marcadas, stencil na lateral e a coluna de bandeiras.", "sp": [["Tamanho", "160 × 90 cm"], ["Base", "microfibra sublimada"]], "img": "pz-b-toalha.jpg"}], "c": [{"t": "Credencial", "d": "Mar profundo com os círculos de radar, sem foto recortada. As tarjas inclinadas de largada com o título, listras laranja de velocidade e faixa laranja por categoria.", "sp": [["Formato", "PVC 9,5 × 14 cm"], ["Categorias", "imprensa · convidado · staff · piloto"]], "tall": 1, "img": "pz-c-credencial.jpg"}, {"t": "Cordões", "d": "Navy com as tarjas NÁUTICA / DAY em sequência e segmentos de radar; laranja com as listras diagonais de largada e YAMAHA · 26NOV em itálico.", "sp": [["Fita", "poliéster 25 mm sublimado"], ["Ferragem", "mosquetão preto fosco"]], "img": "pz-c-cordao.jpg"}, {"t": "Kit de bordo", "d": "Caixa preta e navy com as tarjas e as listras de largada. Dentro: dry bag, camiseta, boné, garrafa, toalha, chaveiro, ingresso de largada, cartão das bandeiras e óculos.", "sp": [["Conteúdo", "9 itens"], ["Embalagem", "caixa rígida"]], "img": "pz-c-kit.jpg"}, {"t": "Camisetas", "d": "Navy com as tarjas no peito e listras laranja na lateral; laranja com o radar gigante e o título nas costas.", "sp": [["Base", "algodão 200 g, oversized"], ["Técnica", "silk em 2 cores"]], "img": "pz-c-camisetas.jpg"}, {"t": "Boné, viseira e garrafa", "d": "Boné navy com listras laranja e patch das tarjas, viseira preta com DAY e garrafa preta fosca com as listras de largada e o radar gravado.", "sp": [["Garrafa", "inox 750 ml"], ["Boné", "nylon, aba curva"]], "img": "pz-c-bone.jpg"}, {"t": "Toalha", "d": "O radar ocupa a toalha inteira, com as tarjas do título no centro, listras de largada no canto e coordenadas.", "sp": [["Tamanho", "160 × 90 cm"], ["Base", "microfibra sublimada"]], "img": "pz-c-toalha.jpg"}]};
 function renderB(keep){const k=KV[i],nx=KV[(i+1)%3];
  sheet.classList.add("rB");
  sheet.innerHTML=`<div class="top"><button id="bk">← Voltar<kbd>Esc</kbd></button><span class="nm">Rota ${i+1} · ${k.name}</span><span class="nv"><button id="rp" aria-label="Rota anterior">←</button><button id="rn" aria-label="Próxima rota">→</button></span></div>
@@ -533,8 +510,8 @@ function renderB(keep){const k=KV[i],nx=KV[(i+1)%3];
   <div id="vbox" class="rv">${voteBox()}</div>
   <div class="rv c12"><span class="n">03</span><p>${k.def[2]}</p></div>
   <div class="pfl rv">${k.pro.map(x=>`<span>${x}</span>`).join('')}</div></div>
- <section class="pz2"><div class="hd rv"><h2>Do KV<br>às peças</h2><p>O key visual vira uma família de peças. O rastro em S, o stencil e as bandeiras se repetem em cada uma, sem depender da foto inteira.</p></div>
-  ${PCS[k.id].map((x,n)=>`<div class="pc"><div class="im"><img src="${x.img}" alt="${x.t}"></div><div class="tx"><span class="no">0${n+1}</span><h3>${x.t}</h3><p>${x.d}</p><div class="sp">${x.sp.map(a=>`<span><b>${a[0]}</b> ${a[1]}</span>`).join('')}</div></div></div>`).join('')}
+ <section class="pz2"><div class="hd rv"><h2>Do KV<br>às peças</h2><p>O key visual vira uma família de peças: credencial, cordões, kit de bordo, camisetas, boné, garrafa e toalha. Os códigos náuticos se repetem em cada uma, sem depender da foto.</p></div>
+  ${PCS[k.id].map((x,n)=>`<div class="pc${x.tall?' tall':''}"><div class="im"><img src="${x.img}" alt="${x.t}" loading="lazy"></div><div class="tx"><span class="no">0${n+1}</span><h3>${x.t}</h3><p>${x.d}</p><div class="sp">${x.sp.map(a=>`<span><b>${a[0]}</b> ${a[1]}</span>`).join('')}</div></div></div>`).join('')}
   <p class="aiN">Imagens geradas por IA apenas para ilustrar o desdobramento; podem conter erros de texto e detalhe. As peças finais dependem da escolha do KV.</p></section>
  <section class="ch voc"><div class="w"><div class="rv"><p class="eyebrow">Vocabulário comum às três rotas</p><h2 class="h">Códigos e ícones náuticos no KV</h2></div><div class="sym">${SYM}</div></div></section>
  <button class="nxt" id="nxt"><img src="${nx.img}" alt=""><span class="in2"><span><small>Próxima rota</small><b>${nx.name}</b></span><span class="ar">→</span></span></button>`;
@@ -562,30 +539,38 @@ function renderRoute(keep){const k=KV[i];sheet.classList.remove("rB");return ren
   $("#bk").onclick=closeRoute;$("#rp").onclick=()=>go(i-1,true);$("#rn").onclick=()=>go(i+1,true);
   bindVote();if(!keep)sheet.scrollTop=0;else sheet.scrollTo({top:0,behavior:"smooth"});observe();
 }
-function openRoute(){const card=cards[i],RMm=matchMedia("(prefers-reduced-motion: reduce)").matches;
- open=true;renderRoute();sheet.classList.remove("rt-a","rt-b","rt-c");sheet.classList.add("rt-"+KV[i].id);
+let flipping=false;
+async function openRoute(){if(flipping)return;const card=cards[i],RMm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ clearInterval(timer);open=true;renderRoute();sheet.classList.remove("rt-a","rt-b","rt-c");sheet.classList.add("rt-"+KV[i].id);
  try{history.replaceState(null,"","#rota-"+KV[i].id)}catch(e){}
  if(!card||RMm){sheet.classList.add("open");document.body.classList.add("lock");return}
+ flipping=true;
+ const src=card.querySelector("img"),h2=sheet.querySelector("#h2img");
+ try{await Promise.all([src.decode(),h2?h2.decode():0])}catch(e){}
  const r=card.getBoundingClientRect();
  sheet.classList.add("instant","open");sheet.style.opacity="0";document.body.classList.add("lock");sheet.scrollTop=0;
- const topH=(sheet.querySelector(".top")||{}).offsetHeight||(innerWidth<600?58:66);const tgH=Math.min(innerWidth*9/16,innerHeight-topH);const tg={left:0,top:topH,width:innerWidth,height:tgH};
+ const topH=(sheet.querySelector(".top")||{}).offsetHeight||(innerWidth<600?58:66);
+ const hb=h2?h2.getBoundingClientRect():{left:0,top:topH,width:innerWidth,height:Math.min(innerWidth*9/16,innerHeight-topH)};
  const scrim=document.createElement("div");scrim.className="scrim";document.body.appendChild(scrim);
- const c=card.querySelector("img").cloneNode();c.className="flipc";c.removeAttribute("style");
- Object.assign(c.style,{left:"0px",top:tg.top+"px",width:tg.width+"px",height:tg.height+"px"});document.body.appendChild(c);
- card.style.visibility="hidden";
- const sx=r.width/tg.width,sy=r.height/tg.height,dx=r.left-tg.left,dy=r.top-tg.top;
- const E="cubic-bezier(.76,0,.24,1)";
- scrim.animate([{opacity:0},{opacity:1}],{duration:700,easing:"ease-out",fill:"forwards"});
- c.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`,borderRadius:"10px",boxShadow:"0 30px 60px rgba(0,0,0,.35)"},
-            {transform:`translate(${dx*.5}px,${dy*.5-20}px) scale(${(sx+1)/2*1.02},${(sy+1)/2*1.02})`,borderRadius:"8px",boxShadow:"0 60px 120px rgba(0,0,0,.45)",offset:.55},
-            {transform:"none",borderRadius:"0px",boxShadow:"0 0 0 rgba(0,0,0,0)"}],{duration:1050,easing:E,fill:"forwards"}).onfinish=()=>{
-  sheet.style.opacity="";requestAnimationFrame(()=>{sheet.classList.remove("instant");
-   c.animate([{opacity:1},{opacity:0}],{duration:250,fill:"forwards"}).onfinish=()=>c.remove();
-   scrim.animate([{opacity:1},{opacity:0}],{duration:300,fill:"forwards"}).onfinish=()=>scrim.remove();
-   card.style.visibility="";sheet.querySelectorAll(".stmt,.sc2").forEach((el,n)=>el.animate([{opacity:0,transform:"translateY(40px)"},{opacity:1,transform:"none"}],{duration:800,delay:n*90,easing:"cubic-bezier(.2,.8,.15,1)",fill:"backwards"}));
-   setTimeout(()=>$("#bk")&&$("#bk").focus({preventScroll:true}),300)})};
+ const c=document.createElement("div");c.className="flipc";const im=src.cloneNode();im.removeAttribute("style");im.className="";c.appendChild(im);
+ Object.assign(c.style,{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",borderRadius:"10px"});
+ document.body.appendChild(c);card.style.visibility="hidden";
+ const D=900,E="cubic-bezier(.65,0,.25,1)";
+ scrim.animate([{opacity:0},{opacity:1}],{duration:D*.7,easing:"ease-out",fill:"forwards"});
+ im.animate([{transform:"scale(1.08)"},{transform:"scale(1)"}],{duration:D,easing:E,fill:"forwards"});
+ const an=c.animate([{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",borderRadius:"10px",boxShadow:"0 30px 60px rgba(0,0,0,.35)"},
+   {left:hb.left+"px",top:hb.top+"px",width:hb.width+"px",height:hb.height+"px",borderRadius:"0px",boxShadow:"0 0 0 rgba(0,0,0,0)"}],{duration:D,easing:E,fill:"forwards"});
+ await an.finished;
+ sheet.style.opacity="";
+ await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ sheet.classList.remove("instant");
+ c.animate([{opacity:1},{opacity:0}],{duration:220,fill:"forwards"}).onfinish=()=>c.remove();
+ scrim.animate([{opacity:1},{opacity:0}],{duration:260,fill:"forwards"}).onfinish=()=>scrim.remove();
+ card.style.visibility="";flipping=false;
+ sheet.querySelectorAll(".stmt,.sc2").forEach((el,n)=>el.animate([{opacity:0,transform:"translateY(30px)"},{opacity:1,transform:"none"}],{duration:700,delay:n*80,easing:"cubic-bezier(.2,.8,.15,1)",fill:"backwards"}));
+ setTimeout(()=>$("#bk")&&$("#bk").focus({preventScroll:true}),300);
 }
-function closeRoute(){open=false;sheet.classList.remove("open");document.body.classList.remove("lock");try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}hero.focus({preventScroll:true});scrollTo({top:0,behavior:"smooth"})}
+function closeRoute(){open=false;restart();sheet.classList.remove("open");document.body.classList.remove("lock");try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}hero.focus({preventScroll:true});scrollTo({top:0,behavior:"smooth"})}
 function refreshVote(){if(typeof sum==="function")sum();const v=$("#vbox");if(v){v.innerHTML=voteBox();bindVote()}badges()}
 let busy=false;
 async function cast(id){if(busy||ls.get("nd-like-"+id))return;busy=true;
@@ -615,12 +600,12 @@ setTimeout(()=>{try{if(!open)hero.focus({preventScroll:true})}catch(e){}},300);
 <script>
 (()=>{const a=document.getElementById("trk"),b=document.getElementById("snd"),t=document.getElementById("sndt");a.volume=.55;
 let off=false;try{off=localStorage.getItem("nd-som")==="off"}catch(e){}
-const ui=()=>{const on=!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);t.textContent=on?"Desligar trilha":(off?"Ligar trilha":"Tocar trilha")};
+const ui=()=>{const on=!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);t.textContent=on?"Desligar trilha":(off?"Ligar trilha":"Toque para ouvir")};
 const play=()=>{if(off)return;a.play().then(ui).catch(ui)};
 a.addEventListener("play",ui);a.addEventListener("pause",ui);
 b.addEventListener("click",e=>{e.stopPropagation();if(a.paused){off=false;try{localStorage.removeItem("nd-som")}catch(_){}a.play().catch(()=>{})}else{off=true;try{localStorage.setItem("nd-som","off")}catch(_){}a.pause()}ui()});
-const first=()=>{["pointerdown","keydown","touchstart","wheel","scroll"].forEach(ev=>removeEventListener(ev,first,true));if(a.paused)play()};
-["pointerdown","keydown","touchstart","wheel","scroll"].forEach(ev=>addEventListener(ev,first,{capture:true,passive:true}));
+const EV=["pointerdown","pointerup","touchend","click","keydown"];const first=e=>{if(e&&e.target&&e.target.closest&&e.target.closest("#snd"))return;if(off||!a.paused){EV.forEach(ev=>removeEventListener(ev,first,true));return}a.play().then(()=>{EV.forEach(ev=>removeEventListener(ev,first,true));ui()}).catch(()=>{})};
+EV.forEach(ev=>addEventListener(ev,first,{capture:true,passive:true}));
 play();ui();
 document.addEventListener("visibilitychange",()=>{if(document.hidden){a.dataset.w=a.paused?"":"1";a.pause()}else if(a.dataset.w)a.play().catch(()=>{})});
 })();
