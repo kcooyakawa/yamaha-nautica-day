@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Yamaha Náutica Day — Key visuals | Stap">
+<meta property="og:description" content="Escolha a rota: três key visuals para o Náutica Day, 26 de novembro, Refúgio Cheiro de Mato.">
+<meta property="og:image" content="https://yamahanauticaday.vercel.app/kv-b.jpg">
+<meta property="og:url" content="https://yamahanauticaday.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
 <title>Yamaha Náutica Day — Key visuals | Stap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
@@ -281,7 +286,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .nxt small{font-size:13px;font-weight:700;font-stretch:118%;color:var(--org)}
 .nxt b{display:block;font-size:clamp(46px,8vw,130px);line-height:.9;font-weight:900;font-stretch:125%;letter-spacing:-.02em}
 .nxt span.ar{font-size:clamp(40px,6vw,90px);font-weight:900;transition:translate .5s}.nxt:hover span.ar{translate:16px 0}
-.flipc{position:fixed;z-index:80;object-fit:cover;border-radius:10px;pointer-events:none;transition:all .85s cubic-bezier(.7,0,.2,1)}
+
 .sheet.instant{transition:none!important}
 @media(max-width:900px){.ed{grid-template-columns:minmax(0,1fr)}.ed>*{grid-column:1/-1!important;grid-row:auto!important}.pc,.pc:nth-of-type(even){grid-template-columns:minmax(0,1fr)}.pc:nth-of-type(even) .im{order:0}}
 
@@ -298,6 +303,21 @@ button{font:inherit;cursor:pointer;color:inherit}
 .intro.ctr h1 em{font-style:normal;color:var(--org)}
 .intro.ctr .sub{margin:14px auto 22px;max-width:46ch}@media(min-width:701px){.intro.ctr .sub{display:none}.intro.ctr h1{font-size:clamp(50px,6.4vw,104px)}}
 
+
+.flipc{position:fixed;z-index:80;object-fit:cover;pointer-events:none;transform-origin:0 0;will-change:transform}
+.scrim{position:fixed;inset:0;z-index:79;background:var(--bg);pointer-events:none}
+.sheet.rt-a.rB{background:linear-gradient(180deg,color-mix(in srgb,#3aa0e8 22%,var(--bg)) 0,var(--bg) 900px)}
+.sheet.rt-b.rB{background:linear-gradient(180deg,color-mix(in srgb,#0f8a95 24%,var(--bg)) 0,var(--bg) 900px)}
+.sheet.rt-c.rB{background:linear-gradient(180deg,color-mix(in srgb,#123d9a 28%,var(--bg)) 0,var(--bg) 900px)}
+.rt-a .stmt .k,.rt-a .ed .n{color:#2a8fd6}.rt-b .stmt .k{color:#0f9aa6}
+.snd{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:10px}
+.snd button{height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 85%,transparent);backdrop-filter:blur(10px);font-weight:800;font-size:13px;font-stretch:112%;display:flex;align-items:center;gap:8px}
+.snd .eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}.snd .eq i{width:3px;height:4px;background:var(--org);border-radius:2px}
+.snd.on .eq i{animation:eq .8s ease-in-out infinite alternate}.snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{to{height:14px}}
+.snd .yt{width:200px;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.3);display:none}
+.snd.on .yt{display:block}.snd .yt iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:600px){.snd .yt{width:150px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
 .fx{display:none;position:fixed;right:14px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:26px;line-height:1;box-shadow:0 12px 28px rgba(10,20,40,.35)}body.lock .fx{display:block}@media(min-width:701px) and (hover:hover){body.lock .fx{display:none}}
 .sheet .top{padding-top:max(12px,env(safe-area-inset-top))}
@@ -336,6 +356,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 <p class="ft">Stap · Direção de arte: Kco Oyakawa · Peças apresentadas como mockups de conceito.</p>
 
 <button class="fx" id="fx" aria-label="Fechar rota">×</button>
+<div class="snd" id="snd"><button id="sndb" aria-pressed="false"><span class="eq"><i></i><i></i><i></i></span><span id="sndt">Trilha</span></button><div class="yt" id="yt"></div></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Rota de key visual"></div>
 
 <script>
@@ -496,10 +517,29 @@ function renderRoute(keep){const k=KV[i];sheet.classList.remove("rB");return ren
   $("#bk").onclick=closeRoute;$("#rp").onclick=()=>go(i-1,true);$("#rn").onclick=()=>go(i+1,true);
   bindVote();if(!keep)sheet.scrollTop=0;else sheet.scrollTo({top:0,behavior:"smooth"});observe();
 }
-function openRoute(){const card=cards[i];if(card&&!matchMedia("(prefers-reduced-motion: reduce)").matches){const r=card.getBoundingClientRect(),c=document.createElement("img");c.src=KV[i].img;c.className="flipc";Object.assign(c.style,{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px"});document.body.appendChild(c);
- open=true;renderRoute();const top=sheet.querySelector(".top").offsetHeight||70;c.offsetWidth;const H=Math.min(innerHeight-top,innerWidth*9/16);Object.assign(c.style,{left:"0px",top:top+"px",width:innerWidth+"px",height:H+"px",borderRadius:"0px"});
- setTimeout(()=>{sheet.classList.add("instant","open");document.body.classList.add("lock");requestAnimationFrame(()=>{sheet.classList.remove("instant");setTimeout(()=>c.remove(),60)})},860);try{history.replaceState(null,"","#rota-"+KV[i].id)}catch(e){}return}
- open=true;renderRoute();sheet.classList.add("open");document.body.classList.add("lock");try{history.replaceState(null,"","#rota-"+KV[i].id)}catch(e){}setTimeout(()=>$("#bk")&&$("#bk").focus({preventScroll:true}),400)}
+function openRoute(){const card=cards[i],RMm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ open=true;renderRoute();sheet.classList.remove("rt-a","rt-b","rt-c");sheet.classList.add("rt-"+KV[i].id);
+ try{history.replaceState(null,"","#rota-"+KV[i].id)}catch(e){}
+ if(!card||RMm){sheet.classList.add("open");document.body.classList.add("lock");return}
+ const r=card.getBoundingClientRect();
+ sheet.classList.add("instant","open");sheet.style.opacity="0";document.body.classList.add("lock");sheet.scrollTop=0;
+ const tg=$("#h2img").getBoundingClientRect();
+ const scrim=document.createElement("div");scrim.className="scrim";document.body.appendChild(scrim);
+ const c=document.createElement("img");c.src=KV[i].img;c.className="flipc";
+ Object.assign(c.style,{left:tg.left+"px",top:tg.top+"px",width:tg.width+"px",height:tg.height+"px"});document.body.appendChild(c);
+ card.style.visibility="hidden";
+ const sx=r.width/tg.width,sy=r.height/tg.height,dx=r.left-tg.left,dy=r.top-tg.top;
+ const E="cubic-bezier(.76,0,.24,1)";
+ scrim.animate([{opacity:0},{opacity:1}],{duration:700,easing:"ease-out",fill:"forwards"});
+ c.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`,borderRadius:"10px",boxShadow:"0 30px 60px rgba(0,0,0,.35)"},
+            {transform:`translate(${dx*.5}px,${dy*.5-20}px) scale(${(sx+1)/2*1.02},${(sy+1)/2*1.02})`,borderRadius:"8px",boxShadow:"0 60px 120px rgba(0,0,0,.45)",offset:.55},
+            {transform:"none",borderRadius:"0px",boxShadow:"0 0 0 rgba(0,0,0,0)"}],{duration:1050,easing:E,fill:"forwards"}).onfinish=()=>{
+  sheet.style.opacity="";requestAnimationFrame(()=>{sheet.classList.remove("instant");
+   c.animate([{opacity:1},{opacity:0}],{duration:250,fill:"forwards"}).onfinish=()=>c.remove();
+   scrim.animate([{opacity:1},{opacity:0}],{duration:300,fill:"forwards"}).onfinish=()=>scrim.remove();
+   card.style.visibility="";sheet.querySelectorAll(".stmt,.sc2").forEach((el,n)=>el.animate([{opacity:0,transform:"translateY(40px)"},{opacity:1,transform:"none"}],{duration:800,delay:n*90,easing:"cubic-bezier(.2,.8,.15,1)",fill:"backwards"}));
+   setTimeout(()=>$("#bk")&&$("#bk").focus({preventScroll:true}),300)})};
+}
 function closeRoute(){open=false;sheet.classList.remove("open");document.body.classList.remove("lock");try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}hero.focus({preventScroll:true});scrollTo({top:0,behavior:"smooth"})}
 function refreshVote(){if(typeof sum==="function")sum();const v=$("#vbox");if(v){v.innerHTML=voteBox();bindVote()}badges()}
 let busy=false;
@@ -523,6 +563,10 @@ setTimeout(()=>{try{if(!open)hero.focus({preventScroll:true})}catch(e){}},300);
 
 (async()=>{try{await pull();setInterval(()=>{if(!document.hidden)pull().catch(()=>{})},20000)}catch(e){dbState="off";refreshVote()}})();
 }
+
+{const b=document.getElementById("sndb"),w=document.getElementById("snd"),y=document.getElementById("yt");
+ b.onclick=()=>{const on=!w.classList.contains("on");w.classList.toggle("on",on);b.setAttribute("aria-pressed",on);document.getElementById("sndt").textContent=on?"Pausar":"Trilha";
+  y.innerHTML=on?'<iframe src="https://www.youtube.com/embed/oo8ugD8KFA4?autoplay=1&loop=1&playlist=oo8ugD8KFA4&controls=1&playsinline=1" title="Trilha" allow="autoplay; encrypted-media" allowfullscreen></iframe>':"";}}
 </script>
 </body>
 </html>
