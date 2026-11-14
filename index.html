@@ -326,6 +326,37 @@ button{font:inherit;cursor:pointer;color:inherit}
 .fx{display:none;position:fixed;right:14px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:26px;line-height:1;box-shadow:0 12px 28px rgba(10,20,40,.35)}body.lock .fx{display:block}@media(min-width:701px) and (hover:hover){body.lock .fx{display:none}}
 .sheet .top{padding-top:max(12px,env(safe-area-inset-top))}
 @media(max-width:600px){.top button#bk{font-size:15px}.top kbd{display:none}.ft{padding-bottom:110px}}
+
+/* coleção */
+.col{background:var(--deep);color:#fff;padding:clamp(70px,10vw,140px) 0}
+.col .w{max-width:1280px;margin:0 auto;padding:0 max(4vw,16px)}
+.col .eyebrow{color:var(--org)}
+.col .hd{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:clamp(40px,6vw,80px)}
+.col h2{margin:0;font-family:"Saira Stencil One",ArchivoV,sans-serif;font-weight:400;font-size:clamp(46px,8vw,120px);line-height:.9;letter-spacing:.01em}
+.col h2 em{font-style:normal;color:var(--org)}
+.col .hd p{margin:0;color:#b6c3e0;font-size:17px;max-width:46ch}
+.cg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.ci{position:relative;margin:0;border-radius:6px;overflow:hidden;background:#0b1f4d}
+.ci img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.15,1)}
+.ci:hover img{transform:scale(1.04)}
+.ci figcaption{position:absolute;inset:auto 0 0 0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(6,18,46,.92));display:flex;gap:14px;align-items:baseline}
+.ci figcaption b{font-family:"Saira Stencil One",ArchivoV;font-weight:400;font-size:clamp(22px,2.4vw,32px);letter-spacing:.02em}
+.ci figcaption span{color:#b6c3e0;font-size:14px;line-height:1.4}
+.ci figcaption i{font-style:normal;color:var(--org);font-weight:800;font-stretch:125%;font-size:12px;letter-spacing:.1em}
+.c-a{grid-column:span 12;aspect-ratio:3/2}.c-b{grid-column:span 7;aspect-ratio:3/2}.c-c{grid-column:span 5;aspect-ratio:4/5}
+.c-d{grid-column:span 6;aspect-ratio:3/2}.c-e{grid-column:span 6;aspect-ratio:3/2}.c-f{grid-column:span 12;aspect-ratio:21/9}
+.flg{display:flex;gap:6px;margin-top:22px}.flg i{width:26px;height:18px;display:block}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:clamp(40px,6vw,70px);border-top:1px solid rgba(255,255,255,.18);padding-top:26px}
+.specs b{display:block;font-stretch:125%;font-size:13px;letter-spacing:.08em;color:var(--org);margin-bottom:6px}
+.specs span{color:#d9e1f2;font-size:15px}
+@media(max-width:800px){.col .hd{grid-template-columns:minmax(0,1fr)}.c-b,.c-c,.c-d,.c-e{grid-column:span 12}.c-c{aspect-ratio:4/5}.c-f{aspect-ratio:3/2}.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.ci figcaption{flex-direction:column;gap:4px}}
+/* trilha */
+.snd{position:fixed;left:max(2vw,14px);bottom:max(2vw,14px);z-index:60;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border:0;border-radius:999px;background:rgba(6,18,46,.86);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:13px;font-weight:700;font-stretch:118%;letter-spacing:.04em;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.snd .eq{display:flex;align-items:end;gap:2px;height:16px;width:18px}
+.snd .eq i{flex:1;background:var(--org);height:30%;border-radius:1px}
+.snd.on .eq i{animation:eq 1s ease-in-out infinite}
+.snd.on .eq i:nth-child(2){animation-delay:-.4s}.snd.on .eq i:nth-child(3){animation-delay:-.7s}.snd.on .eq i:nth-child(4){animation-delay:-.2s}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
 </style>
 </head>
 <body>
@@ -356,6 +387,20 @@ button{font:inherit;cursor:pointer;color:inherit}
    <p class="lead">O stencil é a letra do mundo náutico: nome de embarcação, número de casco, caixa de carga, equipamento de bordo. Pintado no casco, o título parece ter nascido ali. Com desgaste, gotas e sol, a marca continua legível e ganha verdade.</p>
    <ul><li><b>Vira ativação</b> Casco, píer, boias, caixas e bandeirolas no Refúgio.</li><li><b>Pintura ao vivo</b> Com gabarito real, dá para pintar na hora, diante dos convidados.</li><li><b>Uma cor, sem degradê</b> Versátil e fiel à aplicação em silk, bordado, laser e vinil.</li><li><b>Liga ao produto</b> Parece marcação de fábrica de uma WaveRunner.</li></ul></div>
   <div class="rv"><div class="pic"><img src="stencil.jpg" alt="Título Náutica Day em stencil no casco molhado de um barco navy" data-plx=".1"></div></div>
+</div></section>
+<section class="col" id="colecao"><div class="w">
+ <div class="hd rv"><div><p class="eyebrow">Coleção Náutica Day</p><h2>Vestir o<br><em>dia na água.</em></h2></div>
+  <div><p>A mesma linguagem dos KVs vira coleção: stencil, carta náutica, rastro em S e bandeiras do código de sinais. Peças pensadas para ser usadas depois do evento, não para ficar na gaveta.</p><div class="flg" aria-hidden="true"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f2"></i><i class="f6"></i><i class="f2"></i></div></div></div>
+ <div class="cg">
+  <figure class="ci c-a rv"><img src="col-camisetas.jpg" alt="Duas camisetas: navy com Náutica Day no peito e off-white com a carta náutica e o rastro em S nas costas" loading="lazy"><figcaption><i>01</i><b>Camisetas</b><span>Navy com assinatura no peito e coordenadas; off-white com a carta náutica inteira nas costas, rastro em S e bandeiras YAMAHA DAY.</span></figcaption></figure>
+  <figure class="ci c-b rv"><img src="col-bones.jpg" alt="Três bonés: 5-panel navy, trucker branco e bucket laranja" loading="lazy"><figcaption><i>02</i><b>Bonés</b><span>5-panel navy com patch de borracha, trucker com bandeiras bordadas na lateral e bucket laranja com as coordenadas na aba.</span></figcaption></figure>
+  <figure class="ci c-c rv"><img src="col-garrafa.jpg" alt="Garrafa térmica navy gravada a laser e copo branco" loading="lazy"><figcaption><i>03</i><b>Garrafa</b><span>Inox navy fosco com gravação a laser: stencil vertical, curvas de nível e rosa dos ventos.</span></figcaption></figure>
+  <figure class="ci c-d rv"><img src="col-lycra.jpg" alt="Camisa de lycra UV branca com bandeiras na manga e carta náutica nas costas" loading="lazy"><figcaption><i>04</i><b>Lycra UV</b><span>Para pilotar: manga laranja com o código de sinais e a carta náutica nas costas.</span></figcaption></figure>
+  <figure class="ci c-e rv"><img src="col-acessorios.jpg" alt="Dry bag laranja, bandana, chaveiro flutuante, viseira e protetor solar" loading="lazy"><figcaption><i>05</i><b>Kit de bordo</b><span>Dry bag, bandana, chaveiro flutuante em forma de bandeira, viseira e protetor solar com rótulo do evento.</span></figcaption></figure>
+  <figure class="ci c-f rv"><img src="col-toalha.jpg" alt="Toalha de praia navy com o rastro em S e as bandeiras náuticas" loading="lazy"><figcaption><i>06</i><b>Toalha</b><span>A peça mais gráfica da coleção: o KV inteiro em 1,6 m, com o rastro em S, a profundidade e a coluna de bandeiras.</span></figcaption></figure>
+ </div>
+ <div class="specs rv"><div><b>PALETA</b><span>Navy, laranja, branco e azul Yamaha</span></div><div><b>TÉCNICAS</b><span>Silk, bordado, laser e sublimação</span></div><div><b>LETTERING</b><span>Stencil em uma cor, sem degradê</span></div><div><b>SISTEMA</b><span>Coordenadas, carta, bandeiras e rosa dos ventos</span></div></div>
+ <p class="aiN" style="color:#97a3bb;margin-top:30px;font-size:13px">Imagens geradas por IA para ilustrar a coleção; podem conter erros de texto e detalhe.</p>
 </div></section>
 <p class="ft">Stap Feelings · Direção de arte: Kco Oyakawa · Peças apresentadas como mockups de conceito.</p>
 
@@ -564,6 +609,21 @@ setTimeout(()=>{try{if(!open)hero.focus({preventScroll:true})}catch(e){}},300);
 (async()=>{try{await pull();setInterval(()=>{if(!document.hidden)pull().catch(()=>{})},20000)}catch(e){dbState="off";refreshVote()}})();
 }
 
+</script>
+<button class="snd" id="snd" aria-pressed="false" aria-label="Ligar ou desligar a trilha"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sndt">Trilha ligada</span></button>
+<audio id="trk" src="trilha.mp3" loop preload="auto"></audio>
+<script>
+(()=>{const a=document.getElementById("trk"),b=document.getElementById("snd"),t=document.getElementById("sndt");a.volume=.55;
+let off=false;try{off=localStorage.getItem("nd-som")==="off"}catch(e){}
+const ui=()=>{const on=!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);t.textContent=on?"Desligar trilha":(off?"Ligar trilha":"Tocar trilha")};
+const play=()=>{if(off)return;a.play().then(ui).catch(ui)};
+a.addEventListener("play",ui);a.addEventListener("pause",ui);
+b.addEventListener("click",e=>{e.stopPropagation();if(a.paused){off=false;try{localStorage.removeItem("nd-som")}catch(_){}a.play().catch(()=>{})}else{off=true;try{localStorage.setItem("nd-som","off")}catch(_){}a.pause()}ui()});
+const first=()=>{["pointerdown","keydown","touchstart","wheel","scroll"].forEach(ev=>removeEventListener(ev,first,true));if(a.paused)play()};
+["pointerdown","keydown","touchstart","wheel","scroll"].forEach(ev=>addEventListener(ev,first,{capture:true,passive:true}));
+play();ui();
+document.addEventListener("visibilitychange",()=>{if(document.hidden){a.dataset.w=a.paused?"":"1";a.pause()}else if(a.dataset.w)a.play().catch(()=>{})});
+})();
 </script>
 </body>
 </html>
