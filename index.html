@@ -249,7 +249,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 /* ===== rota v2 (Carta Náutica) ===== */
 .rB{background:var(--bg)}
 .rB .hero2{position:relative;background:#05080e;overflow:hidden}
-.rB .hero2 img{display:block;width:100%;height:auto;max-height:calc(100svh - 70px);object-fit:cover}
+.rB .hero2 img{display:block;width:100%;aspect-ratio:16/9;height:auto;max-height:calc(100svh - 70px);object-fit:cover}
 .rB .sc2{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 0 0;font-size:12px;font-weight:700;font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.rB .sc2 i{width:1px;height:40px;background:linear-gradient(var(--org),transparent);animation:drip 1.8s ease-in-out infinite}
 .rB .hero2 .sc{background:rgba(6,18,46,.6);backdrop-filter:blur(8px);padding:10px 16px 8px;border-radius:99px;position:absolute;left:50%;bottom:22px;translate:-50% 0;color:#fff;font-size:12px;font-weight:700;font-stretch:118%;letter-spacing:.14em;display:flex;flex-direction:column;align-items:center;gap:8px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
 .rB .hero2 .sc i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:drip 1.8s ease-in-out infinite}
@@ -468,13 +468,16 @@ function voteBox(){const k=KV[i],liked=!!ls.get("nd-like-"+k.id),c=cnt(k.id);
 function bindVote(){const b=$("#vb");if(b)b.onclick=()=>cast(KV[i].id)}
 
 const PCS={b:[{img:"pc-b-credencial.jpg",t:"Credencial",d:"O mar aéreo do KV no topo e o título em stencil, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"pc-b-cordao.jpg",t:"Cordão dupla face",d:"Duas faces: frente navy com NÁUTICA gigante vazando, verso laranja com NÁUTICA em pattern diagonal. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-b-cordao.jpg",t:"Cordão dupla face",d:"Na frente, a assinatura Yamaha e as bandeiras YAMAHA DAY perto do mosquetão. Duas faces: frente navy com NÁUTICA gigante vazando, verso laranja com NÁUTICA em pattern diagonal. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-b-kit.jpg",t:"Kit de bordo",d:"O kit completo sobre o deck: sacola, credencial, cordão e cartão de embarque numerado, todos com a mesma assinatura Yamaha e o mesmo lettering da rota.",sp:[["Conteúdo","sacola · credencial · cordão · cartão de embarque"]]},
  {img:"pc-b-sacola.jpg",t:"Sacola do kit",d:"Lona navy com o stencil e as linhas da carta náutica na base, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}],
 a:[{img:"pc-a-credencial.jpg",t:"Credencial",d:"Fundo branco com o splash de aquarela do KV, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"pc-a-cordao.jpg",t:"Cordão dupla face",d:"Duas faces: frente branca com NÁUTICA e a assinatura Yamaha, verso azul com o título em pattern. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-a-cordao.jpg",t:"Cordão dupla face",d:"Na frente, a assinatura Yamaha e as bandeiras YAMAHA DAY perto do mosquetão. Duas faces: frente branca com NÁUTICA e a assinatura Yamaha, verso azul com o título em pattern. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-a-kit.jpg",t:"Kit de bordo",d:"O kit completo sobre o deck: sacola, credencial, cordão e cartão de embarque numerado, todos com a mesma assinatura Yamaha e o mesmo lettering da rota.",sp:[["Conteúdo","sacola · credencial · cordão · cartão de embarque"]]},
  {img:"pc-a-sacola.jpg",t:"Sacola do kit",d:"Lona crua com o título navy e laranja e a aquarela do mar entrando pela base, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}],
 c:[{img:"pc-c-credencial.jpg",t:"Credencial",d:"O mar profundo do KV no topo e as tarjas inclinadas, assinatura Yamaha, nome em destaque, bandeiras YAMAHA DAY e faixa laranja por categoria.",sp:[["Formato","PVC 9,5 × 14 cm"],["Categorias","imprensa · convidado · staff"]]},
- {img:"pc-c-cordao.jpg",t:"Cordão dupla face",d:"Duas faces: frente navy com NÁUTICA em itálico gigante vazando, verso laranja com as listras de largada. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-c-cordao.jpg",t:"Cordão dupla face",d:"Na frente, a assinatura Yamaha e as bandeiras YAMAHA DAY perto do mosquetão. Duas faces: frente navy com NÁUTICA em itálico gigante vazando, verso laranja com as listras de largada. Ao girar no pescoço, o cordão alterna entre elas.",sp:[["Fita","poliéster 25 mm sublimada nas duas faces"],["Ferragem","mosquetão preto fosco"]]},
+ {img:"pc-c-kit.jpg",t:"Kit de bordo",d:"O kit completo sobre o deck: sacola, credencial, cordão e cartão de embarque numerado, todos com a mesma assinatura Yamaha e o mesmo lettering da rota.",sp:[["Conteúdo","sacola · credencial · cordão · cartão de embarque"]]},
  {img:"pc-c-sacola.jpg",t:"Sacola do kit",d:"Lona navy com as tarjas e as listras laranja de largada no canto, com a assinatura Yamaha, data e local.",sp:[["Técnica","silk + sublimação"],["Base","lona 100% algodão"]]}]};
 function renderB(keep){const k=KV[i],nx=KV[(i+1)%3];
  sheet.classList.add("rB");
@@ -520,10 +523,10 @@ function openRoute(){const card=cards[i],RMm=matchMedia("(prefers-reduced-motion
  if(!card||RMm){sheet.classList.add("open");document.body.classList.add("lock");return}
  const r=card.getBoundingClientRect();
  sheet.classList.add("instant","open");sheet.style.opacity="0";document.body.classList.add("lock");sheet.scrollTop=0;
- const tg=$("#h2img").getBoundingClientRect();
+ const topH=(sheet.querySelector(".top")||{}).offsetHeight||(innerWidth<600?58:66);const tgH=Math.min(innerWidth*9/16,innerHeight-topH);const tg={left:0,top:topH,width:innerWidth,height:tgH};
  const scrim=document.createElement("div");scrim.className="scrim";document.body.appendChild(scrim);
- const c=document.createElement("img");c.src=KV[i].img;c.className="flipc";
- Object.assign(c.style,{left:tg.left+"px",top:tg.top+"px",width:tg.width+"px",height:tg.height+"px"});document.body.appendChild(c);
+ const c=card.querySelector("img").cloneNode();c.className="flipc";c.removeAttribute("style");
+ Object.assign(c.style,{left:"0px",top:tg.top+"px",width:tg.width+"px",height:tg.height+"px"});document.body.appendChild(c);
  card.style.visibility="hidden";
  const sx=r.width/tg.width,sy=r.height/tg.height,dx=r.left-tg.left,dy=r.top-tg.top;
  const E="cubic-bezier(.76,0,.24,1)";
