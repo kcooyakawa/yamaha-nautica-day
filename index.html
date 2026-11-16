@@ -511,7 +511,7 @@ function renderB(keep){const k=KV[i],nx=KV[(i+1)%3];
   <div class="rv c12"><span class="n">03</span><p>${k.def[2]}</p></div>
   <div class="pfl rv">${k.pro.map(x=>`<span>${x}</span>`).join('')}</div></div>
  <section class="pz2"><div class="hd rv"><h2>O KV<br>no evento</h2><p>O key visual vira uma família de peças: credencial, cordões, kit de bordo, camisetas, boné, garrafa e toalha. Os códigos náuticos se repetem em cada uma, sem depender da foto.</p></div>
-  ${PCS[k.id].map((x,n)=>`<div class="pc${x.tall?' tall':''}"><div class="im"><img src="${x.img}" alt="${x.t}" loading="lazy"></div><div class="tx"><span class="no">0${n+1}</span><h3>${x.t}</h3><p>${x.d}</p><div class="sp">${x.sp.map(a=>`<span><b>${a[0]}</b> ${a[1]}</span>`).join('')}</div></div></div>`).join('')}
+  ${PCS[k.id].map((x,n)=>`<div class="pc${x.tall?' tall':''}"><div class="im"><img src="${x.img}?v=1116" alt="${x.t}" loading="lazy"></div><div class="tx"><span class="no">0${n+1}</span><h3>${x.t}</h3><p>${x.d}</p><div class="sp">${x.sp.map(a=>`<span><b>${a[0]}</b> ${a[1]}</span>`).join('')}</div></div></div>`).join('')}
   <p class="aiN">Artes em vetor aplicadas sobre fotos de ambiente geradas para simulação. As peças finais dependem da escolha do KV.</p></section>
  <section class="ch voc"><div class="w"><div class="rv"><p class="eyebrow">Vocabulário comum às três rotas</p><h2 class="h">Códigos e ícones náuticos no KV</h2></div><div class="sym">${SYM}</div></div></section>
  <button class="nxt" id="nxt"><img src="${nx.img}" alt=""><span class="in2"><span><small>Próxima rota</small><b>${nx.name}</b></span><span class="ar">→</span></span></button>`;
