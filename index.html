@@ -618,8 +618,8 @@ setTimeout(()=>{try{if(!open)hero.focus({preventScroll:true})}catch(e){}},300);
 <script>
 (()=>{const a=document.getElementById("trk"),b=document.getElementById("snd"),t=document.getElementById("sndt");a.volume=.55;
 const ST=[0,174,399,632];let last=-1;try{last=+localStorage.getItem("nd-faixa")}catch(e){}
-let pick=Math.floor(Math.random()*ST.length);if(ST.length>1&&pick===last)pick=(pick+1)%ST.length;try{localStorage.setItem("nd-faixa",pick)}catch(e){}
-const seek=()=>{try{a.currentTime=ST[pick]}catch(e){}};if(a.readyState>=1)seek();else a.addEventListener("loadedmetadata",seek,{once:true});
+let pick=(isNaN(last)||last<0)?Math.floor(Math.random()*ST.length):(last+1)%ST.length;try{localStorage.setItem("nd-faixa",pick)}catch(e){}
+const seek=()=>{try{a.currentTime=ST[pick]}catch(e){}};if(a.readyState>=1)seek();else a.addEventListener("loadedmetadata",seek,{once:true});let fixed=false;a.addEventListener("playing",()=>{if(fixed)return;fixed=true;if(Math.abs(a.currentTime-ST[pick])>3)seek()});
 let off=false;try{off=localStorage.getItem("nd-som")==="off"}catch(e){}
 const ui=()=>{const on=!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);t.textContent=on?"Desligar trilha":(off?"Ligar trilha":"Toque para ouvir")};
 const play=()=>{if(off)return;a.play().then(ui).catch(ui)};
