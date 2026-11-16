@@ -539,7 +539,7 @@ function renderB(keep){const k=KV[i],nx=KV[(i+1)%3];
   <p class="aiN">Artes em vetor aplicadas sobre fotos de ambiente geradas para simulação. As peças finais dependem da escolha do KV.</p></section>
  ${stxSec(k)}
  <section class="ch voc"><div class="w"><div class="rv"><p class="eyebrow">Vocabulário comum às três rotas</p><h2 class="h">Códigos e ícones náuticos no KV</h2></div><div class="sym">${SYM}</div></div></section>
- <div class="dlb"><div class="dlw"><a class="dl1" href="downloads/KV-Nautica-Day-${k.id}.jpg" download="KV Yamaha Nautica Day - Rota ${i+1} ${k.name}.jpg"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg><span><b>Baixe o KV ${k.name}</b><small>Key visual em alta · JPG</small></span></a></div></div>
+ <div class="dlb"><div class="dlw"><a class="dl1" href="downloads/KV-Nautica-Day-${k.id}.jpg" download="KV Yamaha Nautica Day - Rota ${i+1} ${k.name}.jpg"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg><span><b>Baixar KV</b></span></a></div></div>
  <button class="nxt" id="nxt"><img src="${nx.img}" alt=""><span class="in2"><span><small>Próxima rota</small><b>${nx.name}</b></span><span class="ar">→</span></span></button>`;
  $("#bk").onclick=closeRoute;$("#rp").onclick=()=>go(i-1,true);$("#rn").onclick=()=>go(i+1,true);$("#nxt").onclick=()=>go(i+1,true);
  bindVote();if(!keep)sheet.scrollTop=0;else sheet.scrollTo({top:0,behavior:"smooth"});observe();
