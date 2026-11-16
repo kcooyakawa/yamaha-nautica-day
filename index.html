@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta property="og:title" content="Yamaha Náutica Day — Key visuals | Stap">
 <meta property="og:description" content="Escolha a rota: três key visuals para o Náutica Day, 26 de novembro, Refúgio Cheiro de Mato.">
-<meta property="og:image" content="https://yamahanauticaday.vercel.app/kv-b.jpg">
+<meta property="og:image" content="https://yamahanauticaday.vercel.app/og.jpg?v=2">
 <meta property="og:url" content="https://yamahanauticaday.vercel.app/">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>Yamaha Náutica Day — Key visuals | Stap</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -609,6 +610,20 @@ const EV=["pointerdown","pointerup","touchend","click","keydown"];const first=e=
 EV.forEach(ev=>addEventListener(ev,first,{capture:true,passive:true}));
 play();ui();
 document.addEventListener("visibilitychange",()=>{if(document.hidden){a.dataset.w=a.paused?"":"1";a.pause()}else if(a.dataset.w)a.play().catch(()=>{})});
+})();
+</script>
+<script>
+(function(){
+ var T='nd-kco-7f3k-aviso',ls={};try{ls=localStorage}catch(e){}
+ if(/[?&]eu\b/.test(location.search)){try{ls['nd-eu']='1'}catch(e){}}
+ var eu=ls['nd-eu']==='1';
+ function badge(n){var b=document.createElement('div');b.textContent=n+' visitas';b.style.cssText='position:fixed;left:12px;bottom:12px;z-index:9999;background:#0a1630;color:#fff;font:600 12px system-ui;padding:6px 10px;border-radius:20px;opacity:.85';document.body.appendChild(b)}
+ if(eu){fetch('https://abacus.jasoncameron.dev/get/nd-kco-7f3k/visitas').then(function(r){return r.json()}).then(function(d){badge(d.value)}).catch(function(){});return}
+ try{if(sessionStorage['nd-v'])return;sessionStorage['nd-v']='1'}catch(e){}
+ fetch('https://abacus.jasoncameron.dev/hit/nd-kco-7f3k/visitas').then(function(r){return r.json()}).then(function(d){
+  var dev=/iPhone|Android|Mobile/i.test(navigator.userAgent)?'celular':'computador';
+  fetch('https://ntfy.sh/'+T,{method:'POST',body:'Visita #'+d.value+' ('+dev+')',headers:{'Title':'Alguem abriu o link','Tags':'eyes'}}).catch(function(){});
+ }).catch(function(){});
 })();
 </script>
 </body>
