@@ -382,7 +382,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 @media(max-width:600px){.dlb a{width:100%;justify-content:center;text-align:left}}
 </style>
 </head>
-<body><div class="dkn">💻 Este site é melhor visualizado no computador.</div>
+<body>
 <header class="hero" id="hero" tabindex="-1">
   <div class="bar"><span class="lgs"><img class="lt st" src="st-navy.png" alt="Stap Feelings"><img class="dk2 st" src="st-white.png" alt="Stap Feelings"><b class="sep"></b><img class="lt ya" src="ya-navy.png" alt="Yamaha"><img class="dk2 ya" src="ya-white.png" alt="Yamaha"></span><span>Náutica Day · 26 de novembro · Refúgio Cheiro de Mato</span></div>
   <div class="intro ctr"><p class="kk">3 rotas de key visual</p><h1>Escolha a <em>rota.</em></h1><p class="sub"><span class="dk">Use as setas ou clique no KV para abrir a defesa e as peças.</span><span class="mb">Deslize e toque no KV para abrir a defesa e as peças.</span></p></div>
@@ -392,7 +392,6 @@ button{font:inherit;cursor:pointer;color:inherit}
 </header>
 <section class="dlb"><div class="dlw">
  <a class="dl1" href="downloads/Yamaha-Nautica-Day-KVs.zip" download><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg><span><b>Baixe os KVs</b><small>3 key visuals em alta · ZIP</small></span></a>
- <a class="dl2" href="downloads/Yamaha-Nautica-Day-Pecas.zip" download><span><b>Baixe todas as peças</b><small>KVs, desdobramentos e ativação stencil · ZIP 14 MB</small></span></a>
 </div></section>
 
 <section class="ch" id="simbolos"><div class="w">
@@ -657,17 +656,6 @@ window.addEventListener("load",function(){setTimeout(function(){try{KV.forEach(f
  }).catch(function(){});
 })();
 </script>
-<script>
-(function(){try{if(sessionStorage['nd-dk'])return}catch(e){}
-if(!matchMedia('(max-width:820px)').matches)return;
-var d=document.createElement('div');d.setAttribute('role','status');
-d.innerHTML='<span>💻 Para a melhor experiência, abra este site no computador.</span><button aria-label="Fechar">×</button>';
-d.style.cssText='position:fixed;left:12px;right:12px;top:calc(44px + env(safe-area-inset-top));z-index:10000;display:flex;align-items:center;gap:12px;justify-content:space-between;background:rgba(10,22,48,.94);color:#fff;font:600 14px system-ui;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.15);box-shadow:0 10px 30px rgba(0,0,0,.35);transition:opacity .4s';
-var b=d.querySelector('button');b.style.cssText='background:none;border:0;color:#fff;font-size:22px;line-height:1;padding:0 4px';
-function x(){d.style.opacity=0;setTimeout(function(){d.remove()},400);try{sessionStorage['nd-dk']='1'}catch(e){}}
-b.onclick=x;setTimeout(x,10000);
-document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(d)});if(document.body)document.body.appendChild(d);
-})();
-</script>
+
 </body>
 </html>
