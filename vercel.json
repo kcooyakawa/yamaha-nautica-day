@@ -1,1 +1,53 @@
-{"headers":[{"source":"/(.*)","headers":[{"key":"Access-Control-Allow-Origin","value":"*"}]},{"source":"/","headers":[{"key":"Cache-Control","value":"no-cache, must-revalidate"}]},{"source":"/index.html","headers":[{"key":"Cache-Control","value":"no-cache, must-revalidate"}]}]}
+{
+ "headers": [
+  {
+   "source": "/(.*)",
+   "headers": [
+    {
+     "key": "Access-Control-Allow-Origin",
+     "value": "*"
+    }
+   ]
+  },
+  {
+   "source": "/",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "no-cache, must-revalidate"
+    }
+   ]
+  },
+  {
+   "source": "/index.html",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "no-cache, must-revalidate"
+    }
+   ]
+  }
+ ],
+ "redirects": [
+  {
+   "source": "/",
+   "destination": "/v2/",
+   "permanent": false
+  },
+  {
+   "source": "/index.html",
+   "destination": "/v2/",
+   "permanent": false
+  },
+  {
+   "source": "/_arquivo/:path*",
+   "destination": "/v2/",
+   "permanent": false
+  },
+  {
+   "source": "/previa.html",
+   "destination": "/v2/",
+   "permanent": false
+  }
+ ]
+}
