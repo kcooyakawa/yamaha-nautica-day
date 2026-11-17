@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><base href="/">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Yamaha Náutica Day — Key visuals | Stap">
+<meta property="og:description" content="Escolha a rota: três key visuals para o Náutica Day, 26 de novembro, Refúgio Cheiro de Mato.">
+<meta property="og:image" content="https://yamahanauticaday.vercel.app/og.jpg?v=3">
+<meta property="og:url" content="https://yamahanauticaday.vercel.app/">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Yamaha Náutica Day — Key visuals | Stap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+/* VOICE: sala de apresentação — calma, premium, deixa os KVs falarem
+   IDEA: galeria em profundidade; ao entrar numa rota, abre a prancha dela
+   PICTURE: carrossel 3D dos KVs; dentro, o KV inteiro e as artes-finais das peças
+   COLOUR+TYPE: cinza-estúdio, navy Yamaha, laranja; Archivo expandida (wdth 125)
+   LAYOUT: palco em tela cheia, vocabulário náutico, stencil; rota em camada própria */
+@font-face{font-family:"ArchivoV";src:url(archivo.ttf) format("truetype");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+:root{color-scheme:light dark;--navy:#0b1f4d;--deep:#06122e;--org:#f26a1b;--blue:#1b4ea0;
+--bg:light-dark(#e9ebee,#0b0e14);--bg2:light-dark(#f6f7f9,#121722);--ink:light-dark(#0b1f4d,#e9eef7);--mute:light-dark(#5b6680,#97a3bb);--line:light-dark(#d5d9e0,#232a38)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ArchivoV,Archivo,system-ui,sans-serif;font-stretch:104%;overflow-x:clip}
+body.lock{overflow:hidden}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--org);outline-offset:3px}
+.x{font-stretch:125%}
+.st{font-family:"Saira Stencil One",ArchivoV,sans-serif;font-weight:400;font-stretch:100%}
+
+/* palco */
+.hero{position:relative;min-height:min(100svh,920px);display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(120% 70% at 50% 58%,light-dark(#fbfcfd,#1a2130) 0,var(--bg) 70%)}
+.hero:focus{outline:none}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px max(4vw,16px);font-size:13px;color:var(--mute);font-stretch:118%}
+.bar b{color:var(--ink);font-weight:800}.bar i{font-style:normal;margin:0 8px;color:var(--org)}
+.intro{padding:0 max(4vw,16px);display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.intro h1{margin:0;font-size:clamp(30px,4.2vw,50px);line-height:1.02;font-weight:800;font-stretch:125%;letter-spacing:-.01em;text-wrap:balance;max-width:18ch}
+.intro p{margin:0;color:var(--mute);max-width:38ch}
+.stage{position:relative;flex:1;min-height:440px;perspective:1800px;perspective-origin:50% 40%}
+.card{position:absolute;left:50%;top:50%;width:min(62vw,860px,calc((100svh - 360px)*16/9));aspect-ratio:16/9;border:0;padding:0;background:#000;border-radius:10px;overflow:hidden;transition:transform 1s cubic-bezier(.2,.8,.15,1),opacity .8s,filter .8s,box-shadow .8s;will-change:transform}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);transition:transform 1.4s cubic-bezier(.2,.8,.15,1)}
+.card.on{box-shadow:0 0 0 1px rgba(255,255,255,.6),0 0 60px 6px light-dark(rgba(255,255,255,.95),rgba(140,180,255,.25)),0 40px 80px rgba(10,20,40,.35)}
+.card.on img{transform:scale(1)}
+.card:not(.on){filter:saturate(.7) brightness(.92)}
+.vt{position:absolute;top:12px;left:12px;background:rgba(6,18,46,.72);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px}
+.side{position:absolute;top:46%;z-index:8;width:56px;height:56px;border-radius:50%;border:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 85%,transparent);backdrop-filter:blur(8px);font-size:22px;font-weight:800;box-shadow:0 10px 24px rgba(10,20,40,.15);transition:transform .25s}
+.side:hover{transform:scale(1.08)}.side.l{left:max(2vw,10px)}.side.r{right:max(2vw,10px)}
+.label{text-align:center;padding:0 16px clamp(18px,3vh,34px)}
+.label .n{font-size:13px;color:var(--mute)}
+.label h2{margin:2px 0 2px;font-size:clamp(22px,2.6vw,30px);line-height:1.1;font-weight:800;font-stretch:125%}
+.label p{margin:0;color:var(--mute);font-size:15px}
+.ctrl{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:14px}
+.pips{display:flex;gap:6px}.pips i{width:8px;height:8px;border-radius:9px;background:var(--line);transition:width .5s,background .5s}.pips i.on{width:26px;background:var(--org)}
+.go{min-height:46px;padding:0 24px;border-radius:99px;border:0;background:var(--navy);color:#fff;font-size:14px;font-weight:700;font-stretch:118%}
+
+/* seções */
+.ch{padding:clamp(56px,8vw,120px) max(5vw,16px)}
+.w{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:13px;color:var(--org);font-weight:700;font-stretch:118%;margin:0 0 10px}
+.h{font-size:clamp(28px,4vw,48px);line-height:1.04;margin:0 0 20px;font-weight:800;font-stretch:125%;letter-spacing:-.01em;text-wrap:balance}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--mute);max-width:60ch;margin:0}
+.g2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:start}
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.15,1)}
+.rv.in{opacity:1;transform:none}
+
+/* vocabulário */
+.sym{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);margin-top:clamp(32px,5vw,60px)}
+.sy{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.sy svg{width:100%;height:120px;display:block;margin-bottom:14px}
+.sy h3{margin:0 0 6px;font-size:18px;line-height:1.2;font-stretch:118%}
+.sy p{margin:0;color:var(--mute);font-size:15px}
+.flagrow{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0 14px}.flagrow i{width:28px;height:19px;display:block}.flagrow em{width:12px}
+.flagrow+small{display:block;font-size:12px;color:var(--mute);margin:-8px 0 12px;letter-spacing:.1em}
+.f1{background:repeating-linear-gradient(45deg,#f5c400 0 3px,#d4202a 3px 6px)}
+.f2{background:linear-gradient(90deg,#fff 50%,#1b4ea0 50%)}
+.f3{background:linear-gradient(45deg,transparent 40%,#fff 40% 60%,transparent 60%),linear-gradient(-45deg,transparent 40%,#fff 40% 60%,transparent 60%),#1b4ea0}
+.f5{background:linear-gradient(#f5c400 30%,#1b4ea0 30% 70%,#f5c400 70%)}
+.f6{background:linear-gradient(90deg,#fff 50%,#d4202a 50%)}
+.sten{background:var(--deep);color:#fff}.sten .lead{color:#b6c3e0}
+.sten ul{margin:24px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 28px}
+.sten li{border-top:1px solid rgba(255,255,255,.18);padding-top:12px;font-size:15px;color:#d9e1f2}.sten li b{display:block;color:#fff;font-size:16px;margin-bottom:2px;font-stretch:118%}
+.sten .pic{border-radius:16px;overflow:hidden;height:clamp(300px,52vh,560px);position:relative}
+.sten .pic img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover}
+.mk{padding:0;background:#0d121c}.mk img{display:block;width:100%;height:auto}
+.mk .missmsg{display:none;margin:0;padding:120px 20px;text-align:center;color:#9fb0d6}.mk.miss img{display:none}.mk.miss .missmsg{display:block}
+.pcs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(32px,4vw,56px)}
+.pcs3 h3{margin:0 0 8px;font-size:clamp(20px,2vw,24px);font-weight:800;font-stretch:125%;line-height:1.15}
+.pcs3 p{color:var(--mute);margin:0 0 10px;font-size:15px}
+.voc{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:900px){.pcs3{grid-template-columns:minmax(0,1fr)}}
+.like .lk{width:100%;min-height:60px;border:0;border-radius:14px;background:#fff;color:var(--navy);display:flex;align-items:center;gap:12px;padding:0 20px;font-weight:800;font-size:17px;font-stretch:112%;transition:transform .2s,background .3s}
+.like .lk svg{fill:none;stroke:currentColor;stroke-width:2;transition:transform .3s cubic-bezier(.2,1.6,.4,1)}
+.like .lk b{margin-left:auto;font-size:22px;font-stretch:125%}
+.like .lk.on{background:var(--org);color:#fff}.like .lk.on svg{fill:#fff;stroke:#fff;transform:scale(1.15)}
+.like .lk:active{transform:scale(.97)}
+.like .row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.14);padding-top:10px}
+.mb{display:none}@media(hover:none),(max-width:700px){.dk{display:none}.mb{display:inline}}
+.sum{background:var(--bg2);border-top:1px solid var(--line)}
+.sumg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);margin-top:clamp(28px,4vw,48px)}
+.sc{border:1px solid var(--line);background:var(--bg);border-radius:16px;overflow:hidden;text-align:left;padding:0;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.2,.8,.15,1),box-shadow .5s}
+.sc:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(10,20,40,.18)}
+.sc img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.sc .mk2{aspect-ratio:3/2;border-top:1px solid var(--line)}
+.sc .tx{padding:16px 18px 18px}
+.sc .tx small{color:var(--org);font-weight:700;font-size:12px;font-stretch:118%}
+.sc .tx b{display:block;font-size:20px;font-weight:800;font-stretch:125%;line-height:1.15;margin:2px 0 4px}
+.sc .tx span{color:var(--mute);font-size:14px;display:block}
+.sc .tx em{font-style:normal;display:inline-block;margin-top:10px;font-weight:800;font-size:14px;color:var(--ink)}
+@media(max-width:900px){.sumg{grid-template-columns:minmax(0,1fr)}}
+.ft{color:var(--mute);font-size:13px;text-align:center;padding:40px 16px 56px}
+
+/* camada da rota */
+.sheet{overflow-x:hidden;position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;transform:translateY(40px) scale(.985);transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.15,1),visibility 0s .7s}
+.sheet.open{opacity:1;visibility:visible;transform:none;transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.15,1)}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px max(4vw,16px);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top button{min-height:44px;border-radius:99px;border:1px solid var(--line);background:var(--bg2);padding:0 16px;font-size:14px;font-weight:700;font-stretch:112%}
+.top kbd{font:inherit;font-size:11px;border:1px solid var(--line);border-radius:5px;padding:1px 6px;margin-left:6px;color:var(--mute)}
+.top .nm{font-weight:800;font-stretch:125%;font-size:15px;text-align:center}
+.top .nv{display:flex;gap:8px}.top .nv button{width:44px;padding:0}
+.def p{margin:0 0 16px;max-width:60ch;font-size:17px}
+.pf{margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+.pf h4{margin:0 0 10px;font-size:14px;font-stretch:118%}
+.pf ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.pf li{border:1px solid var(--line);background:var(--bg2);border-radius:99px;padding:6px 14px;font-size:14px}
+.vote{background:var(--navy);color:#fff;border-radius:16px;padding:26px;position:sticky;top:90px}
+.vote h3{margin:0 0 4px;font-size:21px;font-stretch:118%}
+.vote p{margin:0 0 16px;color:#b6c3e0;font-size:15px}
+.vb{width:100%;min-height:54px;border:0;border-radius:12px;background:var(--org);color:#fff;font-weight:800;font-size:16px;font-stretch:112%}
+.vb.done{background:#fff;color:var(--navy)}.vb:disabled{opacity:.5;cursor:default}
+.tal{margin-top:20px;display:grid;gap:12px}
+.row{font-size:14px;color:#cfd8ec}.row.me{color:#fff;font-weight:800}
+.row .b{height:6px;background:rgba(255,255,255,.14);border-radius:6px;overflow:hidden;margin-top:6px}
+.row .b i{display:block;height:100%;background:var(--org);transition:width .8s cubic-bezier(.2,.8,.15,1)}
+.who{font-size:13px;color:#9fb0d6;margin-top:14px}
+.full{background:light-dark(#dfe3e8,#05080e);padding:clamp(24px,5vw,72px) max(3vw,12px)}
+.full figure{margin:0 auto;max-width:1600px}
+.full img{display:block;width:100%;height:auto;max-height:92vh;object-fit:contain;border-radius:8px;box-shadow:0 40px 80px rgba(10,20,40,.3)}
+.full figcaption{text-align:center;color:var(--mute);font-size:13px;margin-top:14px}
+
+/* pranchas das peças */
+.pz{margin-top:clamp(56px,8vw,100px)}
+.pz .hd{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.pz h3{margin:0;font-size:clamp(22px,2.4vw,30px);font-weight:800;font-stretch:125%;line-height:1.1}
+.pz .hd p{margin:0;color:var(--mute);max-width:52ch;font-size:15px}
+.board{background:light-dark(#e3e6eb,#0d121c);border-radius:18px;padding:clamp(20px,4vw,52px);position:relative;overflow:hidden}
+.spec{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px;font-size:13px;color:var(--mute)}
+.spec b{color:var(--ink);font-weight:700}
+.tagl{font-size:11px;font-weight:700;color:var(--mute);margin:0 0 8px;font-stretch:118%}
+
+/* cordão: arte-final em faixa */
+.rib{height:64px;border-radius:3px;display:flex;align-items:center;overflow:hidden;box-shadow:0 10px 24px rgba(10,20,40,.18);position:relative}
+.rib+.tagl{margin-top:22px}
+.rib .seq{display:flex;align-items:center;gap:26px;padding:0 22px;white-space:nowrap;flex:none}
+.rib .ya{font-weight:900;font-stretch:125%;font-size:14px;letter-spacing:.04em}
+.rib .t{font-size:30px;line-height:1;font-weight:900;font-stretch:125%}
+.rib .co{font-size:10px;font-weight:600;font-stretch:118%;letter-spacing:.06em;line-height:1.35;opacity:.85}
+.rib .fl{display:flex;gap:3px}.rib .fl i{width:22px;height:15px}
+.rib .dv{width:1px;height:28px;background:currentColor;opacity:.35}
+.rib.diag{background-image:repeating-linear-gradient(-62deg,transparent 0 46px,rgba(255,255,255,.0) 46px 47px)}
+.rib .rep{display:flex;gap:0;white-space:nowrap;transform:skewX(-18deg);flex:none}
+.rib .rep span{font-size:56px;font-weight:900;font-stretch:125%;line-height:1;padding-right:24px;letter-spacing:-.01em}
+.lan-hang{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:clamp(20px,4vw,48px);align-items:center}
+.lan-hang svg{width:100%;height:auto;display:block}
+
+/* credenciais */
+.creds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,2vw,24px);align-items:start}
+.cr{aspect-ratio:95/140;border-radius:12px;overflow:hidden;position:relative;box-shadow:0 22px 40px rgba(10,20,40,.28);display:flex;flex-direction:column;color:#fff;background:var(--navy);transition:transform .6s cubic-bezier(.2,.8,.15,1)}
+.cr:hover{transform:translateY(-6px)}
+.cr .slot{position:absolute;top:4%;left:50%;translate:-50% 0;width:20%;height:3.2%;border-radius:9px;background:light-dark(#e3e6eb,#0d121c);z-index:3}
+.cr .ph{flex:1;background-size:cover;position:relative}
+.cr .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,18,46,.7) 0,transparent 42%,transparent 62%,rgba(6,18,46,.6))}
+.cr .tt{position:absolute;left:9%;right:9%;top:13%;z-index:2;line-height:.88}
+.cr .ya{display:block;font-size:clamp(7px,.75vw,10px);font-weight:900;font-stretch:125%;letter-spacing:.14em;margin-bottom:8%}
+.cr .a,.cr .b{display:block;font-weight:900;font-stretch:125%;font-size:clamp(17px,2.1vw,28px)}
+.cr .b{color:var(--org);font-size:clamp(20px,2.5vw,34px)}
+.cr .dt{position:absolute;left:9%;bottom:6%;z-index:2;font-size:clamp(7px,.75vw,10px);font-weight:600;font-stretch:118%;line-height:1.3}
+.cr .dt b{display:block;font-size:clamp(12px,1.3vw,17px);font-weight:900;font-stretch:125%}
+.cr .nm{background:#fff;color:var(--navy);padding:8% 9% 0}
+.cr .nm b{display:block;font-size:clamp(12px,1.3vw,17px);line-height:1.05;font-weight:900;font-stretch:118%}
+.cr .nm span{font-size:clamp(8px,.8vw,11px);color:#5b6680}
+.cr .cat{display:block;margin:8% -9% 0;padding:5% 9%;font-weight:900;font-stretch:125%;font-size:clamp(8px,.85vw,12px);letter-spacing:.12em;color:#fff}
+.cr.bk{padding:16% 9% 9%;gap:5%;font-size:clamp(7px,.78vw,11px);line-height:1.5}
+.cr.bk .topo{position:absolute;inset:0;opacity:.22}
+.cr.bk>*{position:relative}
+.cr.bk .big{font-weight:900;font-stretch:125%;font-size:clamp(15px,1.7vw,22px);line-height:1}
+.cr.bk .co{color:#9fb0d6;font-stretch:118%;letter-spacing:.04em}
+.cr.bk .ag{border-top:1px solid rgba(255,255,255,.22);padding-top:6%}
+.cr.bk .ag b{color:var(--org);display:inline-block;width:3.2em;font-stretch:118%}
+.cr.bk .fl{display:flex;gap:2px}.cr.bk .fl i{width:12%;aspect-ratio:3/2}
+.cr.bk .qr{width:28%;aspect-ratio:1;margin-top:auto;border:4px solid #fff;background:conic-gradient(#fff 25%,#0b1f4d 0 50%,#fff 0 75%,#0b1f4d 0) 0 0/25% 25%}
+
+/* kit */
+.kitg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,2.4vw,28px)}
+.tote{aspect-ratio:1;position:relative;display:grid;place-items:center}
+.tote svg{position:absolute;inset:0;width:100%;height:100%}
+.tote .art{position:relative;text-align:center;line-height:.86;margin-top:12%}
+.tote .a{display:block;font-weight:900;font-stretch:125%;font-size:clamp(26px,4vw,52px)}
+.tote .b{display:block;font-weight:900;font-stretch:125%;font-size:clamp(32px,5vw,66px);color:var(--org)}
+.tote small{display:block;margin-top:10%;font-size:clamp(8px,.9vw,11px);font-weight:800;font-stretch:125%;letter-spacing:.16em}
+.stackk{display:grid;gap:clamp(14px,2vw,22px);align-content:center}
+.pass{display:grid;grid-template-columns:minmax(0,1fr) 28%;background:#fff;color:var(--navy);border-radius:12px;overflow:hidden;box-shadow:0 18px 34px rgba(10,20,40,.2)}
+.pass .m{padding:18px 20px}
+.pass .m .ya{font-size:10px;font-weight:900;font-stretch:125%;letter-spacing:.14em;color:#5b6680}
+.pass .m b{display:block;font-size:clamp(18px,2vw,24px);font-weight:900;font-stretch:125%;line-height:1.05;margin:6px 0 12px}
+.pass .gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;font-size:11px;color:#5b6680}
+.pass .gr strong{display:block;color:var(--navy);font-size:14px;font-stretch:118%}
+.pass .stub{background:var(--navy);color:#fff;display:grid;place-items:center;text-align:center;border-left:2px dashed #c8d0e0;font-weight:900;font-stretch:125%;font-size:clamp(16px,1.8vw,22px);line-height:1;padding:10px}
+.pass .stub small{display:block;font-size:9px;font-weight:700;letter-spacing:.12em;margin-top:6px;color:#9fb0d6}
+.mini2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2vw,22px)}
+.lbl{border-radius:10px;padding:16px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 28px rgba(10,20,40,.18);position:relative;overflow:hidden}
+.lbl .k{font-size:10px;font-weight:800;font-stretch:125%;letter-spacing:.14em;opacity:.75}
+.lbl .v{font-size:clamp(18px,2vw,26px);font-weight:900;font-stretch:125%;line-height:1}
+.lbl .fl{display:flex;gap:3px;flex-wrap:wrap}.lbl .fl i{width:18px;height:12px}
+.lbl .hole{position:absolute;top:12px;right:12px;width:14px;height:14px;border-radius:50%;background:light-dark(#e3e6eb,#0d121c)}
+.items{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.items span{border:1px solid var(--line);background:var(--bg2);border-radius:99px;padding:6px 14px;font-size:14px}
+
+/* variação por rota */
+.A .tA{color:var(--navy)}.B .tA,.C .tA{color:#fff}
+.B .ttl{font-family:"Saira Stencil One",ArchivoV,sans-serif!important;font-weight:400!important;font-stretch:100%!important}
+.C .ttl{font-style:italic}
+.C .ttl.a{background:var(--navy);color:#fff!important;display:inline-block!important;padding:.06em .2em;transform:skewX(-10deg)}
+.C .ttl.b{background:var(--org);color:var(--navy)!important;display:inline-block!important;padding:.06em .2em;transform:skewX(-10deg);margin-top:.08em}
+
+@media(max-width:980px){.creds{grid-template-columns:repeat(2,minmax(0,1fr))}.kitg,.lan-hang{grid-template-columns:minmax(0,1fr)}.lan-hang svg{max-width:240px;margin:0 auto}}
+@media(max-width:900px){.g2{grid-template-columns:minmax(0,1fr)}.vote{position:static}.card{width:82vw}.sym{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.stage{min-height:300px}.side{display:none}.sym,.sten ul{grid-template-columns:minmax(0,1fr)}.bar span:last-child{display:none}.top .nm{display:none}.rib{height:52px}.rib .t{font-size:24px}.cr .a{font-size:20px}.cr .b{font-size:24px}.cr .nm b{font-size:14px}}
+
+/* motion discreto */
+.hero .bar,.intro h1,.intro p,.label{opacity:0;animation:mIn 1s cubic-bezier(.2,.8,.15,1) forwards}
+.hero .bar{animation-delay:.1s}.intro h1{animation-delay:.25s}.intro p{animation-delay:.4s}.label{animation-delay:1.1s}
+@keyframes mIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.stage:before{content:"";position:absolute;left:50%;top:46%;width:min(110vw,1300px);aspect-ratio:1;translate:-50% -50%;border-radius:50%;
+ background:repeating-radial-gradient(circle,transparent 0 119px,light-dark(rgba(11,31,77,.07),rgba(160,190,255,.07)) 119px 120px);pointer-events:none;animation:rings 2.4s cubic-bezier(.2,.8,.15,1) both}
+@keyframes rings{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+.card{animation:cIn 1.3s cubic-bezier(.2,.8,.15,1) both}
+.card:nth-child(1){animation-delay:.35s}.card:nth-child(2){animation-delay:.5s}.card:nth-child(3){animation-delay:.65s}
+@keyframes cIn{from{opacity:0;filter:blur(12px)}}
+.card.on img{animation:kb 9s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06) translate(-1%,-1%)}}
+.card.on:after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);transform:translateX(-120%);animation:shine 1.4s .2s cubic-bezier(.2,.8,.15,1)}
+@keyframes shine{to{transform:translateX(120%)}}
+.label h2{animation:lb .7s cubic-bezier(.2,.8,.15,1)}@keyframes lb{from{opacity:0;transform:translateY(10px)}}
+.pips i.on{position:relative;overflow:hidden}
+.sheet.open .full img{animation:mIn 1.2s .2s cubic-bezier(.2,.8,.15,1) both}
+.sy svg circle[fill="#f26a1b"]{transform-box:fill-box;transform-origin:center;animation:pl 2.2s ease-in-out infinite}@keyframes pl{50%{transform:scale(1.5);opacity:.6}}
+
+/* ===== rota v2 (Carta Náutica) ===== */
+.rB{background:var(--bg)}
+.rB .hero2{position:relative;background:#05080e;overflow:hidden}
+.rB .hero2 img{display:block;width:100%;aspect-ratio:16/9;height:auto;max-height:calc(100svh - 70px);object-fit:cover}
+.rB .sc2{display:flex;flex-direction:column;align-items:center;gap:8px;padding:22px 0 0;font-size:12px;font-weight:700;font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}.rB .sc2 i{width:1px;height:40px;background:linear-gradient(var(--org),transparent);animation:drip 1.8s ease-in-out infinite}
+.rB .hero2 .sc{background:rgba(6,18,46,.6);backdrop-filter:blur(8px);padding:10px 16px 8px;border-radius:99px;position:absolute;left:50%;bottom:22px;translate:-50% 0;color:#fff;font-size:12px;font-weight:700;font-stretch:118%;letter-spacing:.14em;display:flex;flex-direction:column;align-items:center;gap:8px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+.rB .hero2 .sc i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.stmt{padding:clamp(70px,10vw,150px) max(5vw,16px) clamp(40px,6vw,80px)}
+.stmt .k{font-size:13px;color:var(--org);font-weight:700;font-stretch:118%}
+.stmt .big{font-size:clamp(46px,8.4vw,150px);line-height:.9;font-weight:900;font-stretch:125%;letter-spacing:-.02em;margin:14px 0 0;max-width:12ch}
+.stmt .big em{font-style:normal;color:var(--org)}
+.ed>*{min-width:0}.ed{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);padding:0 max(5vw,16px) clamp(60px,8vw,110px);max-width:1440px;margin:0 auto;align-items:start}
+.ed p{margin:0;font-size:17px;line-height:1.6}
+.ed .n{display:block;font-size:12px;font-weight:800;font-stretch:118%;color:var(--mute);border-top:2px solid var(--ink);padding-top:10px;margin-bottom:14px}
+.ed .c12{grid-column:1/3}.ed .pfl{grid-column:1/3;display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.ed .pfl span{border:1px solid var(--line);background:var(--bg2);border-radius:99px;padding:8px 16px;font-size:14px;font-weight:700}
+#vbox{grid-row:1/3;grid-column:3}
+.pz2{background:var(--bg2);border-top:1px solid var(--line);padding:clamp(70px,9vw,130px) 0}
+.pz2 .hd{padding:0 max(5vw,16px);max-width:1440px;margin:0 auto clamp(40px,6vw,80px);display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.pz2 .hd h2{margin:0;font-size:clamp(40px,6vw,96px);line-height:.92;font-weight:900;font-stretch:125%;letter-spacing:-.02em}
+.pz2 .hd p{margin:0;max-width:44ch;color:var(--mute)}
+.pc{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding:0 max(5vw,16px);max-width:1440px;margin:0 auto clamp(70px,9vw,140px)}
+.pc:nth-of-type(even){grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}.pc:nth-of-type(even) .im{order:2}
+.pc .im{border-radius:14px;overflow:hidden;clip-path:inset(6% 0 6% 0 round 14px);transition:clip-path .7s cubic-bezier(.2,.8,.15,1)}
+.pc .im img{display:block;width:100%;height:auto;scale:1.15;transition:scale .9s cubic-bezier(.2,.8,.15,1)}
+.pc.in .im{clip-path:inset(0 0 0 0 round 14px)}.pc.in .im img{scale:1}
+.pc .no{font-size:clamp(70px,9vw,140px);line-height:.8;font-weight:900;font-stretch:125%;color:transparent;-webkit-text-stroke:1.5px var(--ink);opacity:.25}
+.pc h3{margin:10px 0 12px;font-size:clamp(28px,3vw,46px);line-height:1;font-weight:900;font-stretch:125%}
+.pc p{margin:0 0 14px;color:var(--mute);font-size:17px}
+.pc .sp{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--mute)}.pc .sp b{color:var(--ink)}
+.pc .tx{opacity:0;translate:0 30px;transition:opacity .6s,translate .6s cubic-bezier(.2,.8,.15,1)}.pc.in .tx{opacity:1;translate:0 0}
+.aiN{max-width:1440px;margin:-40px auto 0;padding:0 max(5vw,16px);font-size:13px;color:var(--mute)}
+.nxt{display:block;width:100%;border:0;padding:0;text-align:left;background:var(--navy);color:#fff;position:relative;overflow:hidden;cursor:pointer}
+.nxt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;scale:1.05;transition:opacity .8s,scale 1.4s cubic-bezier(.2,.8,.15,1)}
+.nxt:hover img{opacity:.6;scale:1}
+.nxt .in2{position:relative;padding:clamp(60px,10vw,140px) max(5vw,16px);display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.nxt small{font-size:13px;font-weight:700;font-stretch:118%;color:var(--org)}
+.nxt b{display:block;font-size:clamp(46px,8vw,130px);line-height:.9;font-weight:900;font-stretch:125%;letter-spacing:-.02em}
+.nxt span.ar{font-size:clamp(40px,6vw,90px);font-weight:900;transition:translate .5s}.nxt:hover span.ar{translate:16px 0}
+
+.sheet.instant{transition:none!important}
+@media(max-width:900px){.ed{grid-template-columns:minmax(0,1fr)}.ed>*{grid-column:1/-1!important;grid-row:auto!important}.pc,.pc:nth-of-type(even){grid-template-columns:minmax(0,1fr)}.pc:nth-of-type(even) .im{order:0}}
+
+.pc .im{will-change:transform}
+.pc .no{display:block;will-change:transform}
+.pc h3,.pc p,.pc .sp{transition:opacity 1s,translate 1s cubic-bezier(.2,.8,.15,1)}
+.pc:not(.in) h3{opacity:0;translate:0 40px}.pc:not(.in) p{opacity:0;translate:0 60px}.pc:not(.in) .sp{opacity:0;translate:0 80px}
+.pc h3{transition-delay:.1s}.pc p{transition-delay:.18s}.pc .sp{transition-delay:.26s}
+.stmt .big{will-change:transform}
+
+.intro.ctr{display:block;text-align:center;padding-top:clamp(4px,1vh,16px)}
+.intro.ctr .kk{margin:0 0 6px;color:var(--org);font-size:13px;font-weight:700;font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;max-width:none}
+.intro.ctr h1{max-width:none;margin:0 auto;font-size:clamp(50px,8vw,120px);line-height:.9;letter-spacing:-.02em;font-weight:900;font-stretch:125%}
+.intro.ctr h1 em{font-style:normal;color:var(--org)}
+.intro.ctr .sub{margin:14px auto 22px;max-width:46ch}@media(min-width:701px){.intro.ctr .sub{display:none}.intro.ctr h1{font-size:clamp(50px,6.4vw,104px)}}
+
+
+.pc.tall .im{max-width:min(100%,560px);justify-self:center;width:100%}
+.flipc{position:fixed;z-index:80;overflow:hidden;pointer-events:none;background:#000;will-change:left,top,width,height}.flipc img{display:block;width:100%;height:100%;object-fit:cover;will-change:transform}
+.scrim{position:fixed;inset:0;z-index:79;background:var(--bg);pointer-events:none}
+.sheet.rt-a.rB{background:linear-gradient(180deg,color-mix(in srgb,#3aa0e8 22%,var(--bg)) 0,var(--bg) 900px)}
+.sheet.rt-b.rB{background:linear-gradient(180deg,color-mix(in srgb,#0f8a95 24%,var(--bg)) 0,var(--bg) 900px)}
+.sheet.rt-c.rB,.sheet.rt-d.rB,.sheet.rt-e.rB{background:linear-gradient(180deg,color-mix(in srgb,#123d9a 28%,var(--bg)) 0,var(--bg) 900px)}
+.rt-a .stmt .k,.rt-a .ed .n{color:#2a8fd6}.rt-b .stmt .k{color:#0f9aa6}
+.snd{position:fixed;left:16px;bottom:max(16px,env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:10px}
+.snd button{height:44px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 85%,transparent);backdrop-filter:blur(10px);font-weight:800;font-size:13px;font-stretch:112%;display:flex;align-items:center;gap:8px}
+.snd:not(.on){animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.25),0 0 0 0 rgba(242,106,27,.6)}50%{box-shadow:0 10px 30px rgba(0,0,0,.25),0 0 0 10px rgba(242,106,27,0)}}
+.snd .eq{display:inline-flex;gap:2px;align-items:flex-end;height:14px}.snd .eq i{width:3px;height:4px;background:var(--org);border-radius:2px}
+.snd.on .eq i{animation:eq .8s ease-in-out infinite alternate}.snd.on .eq i:nth-child(2){animation-delay:.2s}.snd.on .eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{to{height:14px}}
+.snd .yt{width:200px;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.3);display:none}
+.snd.on .yt{display:block}.snd .yt iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:600px){.snd .yt{width:150px}}
+
+.lgs{display:flex;align-items:center;gap:14px}.lgs img{height:22px;width:auto;display:block}.lgs img.ya{height:24px}.lgs img.st{height:24px}.lgs .sep{width:1px;height:22px;background:var(--line)}.lgs i{font-style:normal;color:var(--org);font-weight:700}
+.lgs .dk2{display:none}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .lgs .lt{display:none}:root:not([data-theme=light]) .lgs .dk2{display:block}}
+:root[data-theme=dark] .lgs .lt{display:none}:root[data-theme=dark] .lgs .dk2{display:block}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}}
+.fx{display:none;position:fixed;right:14px;bottom:18px;z-index:60;width:56px;height:56px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:26px;line-height:1;box-shadow:0 12px 28px rgba(10,20,40,.35)}body.lock .fx{display:block}@media(min-width:701px) and (hover:hover){body.lock .fx{display:none}}
+.sheet .top{padding-top:max(12px,env(safe-area-inset-top))}
+@media(max-width:600px){.top button#bk{font-size:15px}.top kbd{display:none}.ft{padding-bottom:110px}}
+
+/* coleção */
+.col{background:var(--deep);color:#fff;padding:clamp(70px,10vw,140px) 0}
+.col .w{max-width:1280px;margin:0 auto;padding:0 max(4vw,16px)}
+.col .eyebrow{color:var(--org)}
+.col .hd{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:clamp(40px,6vw,80px)}
+.col h2{margin:0;font-family:"Saira Stencil One",ArchivoV,sans-serif;font-weight:400;font-size:clamp(46px,8vw,120px);line-height:.9;letter-spacing:.01em}
+.col h2 em{font-style:normal;color:var(--org)}
+.col .hd p{margin:0;color:#b6c3e0;font-size:17px;max-width:46ch}
+.cg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,2vw,26px)}
+.ci{position:relative;margin:0;border-radius:6px;overflow:hidden;background:#0b1f4d}
+.ci img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.15,1)}
+.ci:hover img{transform:scale(1.04)}
+.ci figcaption{position:absolute;inset:auto 0 0 0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(6,18,46,.92));display:flex;gap:14px;align-items:baseline}
+.ci figcaption b{font-family:"Saira Stencil One",ArchivoV;font-weight:400;font-size:clamp(22px,2.4vw,32px);letter-spacing:.02em}
+.ci figcaption span{color:#b6c3e0;font-size:14px;line-height:1.4}
+.ci figcaption i{font-style:normal;color:var(--org);font-weight:800;font-stretch:125%;font-size:12px;letter-spacing:.1em}
+.c-a{grid-column:span 12;aspect-ratio:3/2}.c-b{grid-column:span 7;aspect-ratio:3/2}.c-c{grid-column:span 5;aspect-ratio:4/5}
+.c-d{grid-column:span 6;aspect-ratio:3/2}.c-e{grid-column:span 6;aspect-ratio:3/2}.c-f{grid-column:span 12;aspect-ratio:21/9}
+.flg{display:flex;gap:6px;margin-top:22px}.flg i{width:26px;height:18px;display:block}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:clamp(40px,6vw,70px);border-top:1px solid rgba(255,255,255,.18);padding-top:26px}
+.specs b{display:block;font-stretch:125%;font-size:13px;letter-spacing:.08em;color:var(--org);margin-bottom:6px}
+.specs span{color:#d9e1f2;font-size:15px}
+@media(max-width:800px){.col .hd{grid-template-columns:minmax(0,1fr)}.c-b,.c-c,.c-d,.c-e{grid-column:span 12}.c-c{aspect-ratio:4/5}.c-f{aspect-ratio:3/2}.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.ci figcaption{flex-direction:column;gap:4px}}
+/* trilha */
+.snd{position:fixed;left:max(2vw,14px);bottom:max(2vw,14px);z-index:60;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border:0;border-radius:999px;background:rgba(6,18,46,.86);color:#fff;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:13px;font-weight:700;font-stretch:118%;letter-spacing:.04em;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.snd .eq{display:flex;align-items:end;gap:2px;height:16px;width:18px}
+.snd .eq i{flex:1;background:var(--org);height:30%;border-radius:1px}
+.snd.on .eq i{animation:eq 1s ease-in-out infinite}
+.snd.on .eq i:nth-child(2){animation-delay:-.4s}.snd.on .eq i:nth-child(3){animation-delay:-.7s}.snd.on .eq i:nth-child(4){animation-delay:-.2s}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+.im{background:#0f1c36}.im img{opacity:0;transition:opacity .4s ease,scale .9s cubic-bezier(.2,.8,.15,1)}.im img.ok{opacity:1}
+.stx{padding:clamp(60px,9vw,120px) clamp(20px,5vw,64px);background:#0b1426;color:#e9eef7;border-top:1px solid #1c2a45}
+.stxh{max-width:760px;margin-bottom:36px}.stxh .eyebrow{color:#ff7a1a;letter-spacing:.3em;font-size:11px;font-weight:700;text-transform:uppercase}
+.stxh h2{font-size:clamp(36px,6vw,76px);line-height:.95;font-weight:900;text-transform:uppercase;margin:14px 0 18px}.stxh p{color:#b9c4d8;line-height:1.55}
+.stxn{margin-top:10px;font-size:13px;color:#ff9d5c!important}
+.stxg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}.stxg .big{grid-column:1/-1}
+.stxg figure{margin:0}.stxg img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;background:#13213d}.stxg .big img{aspect-ratio:2.6/1}
+.stxg figcaption{padding:12px 2px 0}.stxg b{display:block;font-size:16px}.stxg span{color:#93a1bb;font-size:14px;line-height:1.45}
+.stxr{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}.stxr span{border:1px solid #2a3c60;border-left:3px solid #ff7a1a;padding:10px 14px;border-radius:8px;font-weight:700;font-size:14px}
+.pvb{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10001;background:#ff7a1a;color:#0b1426;font:800 11px system-ui;padding:5px 12px;border-radius:20px;pointer-events:none}
+.stxw{max-width:760px;margin-bottom:64px;padding-bottom:48px;border-bottom:1px solid #1c2a45}.stxw .eyebrow{color:#ff7a1a;letter-spacing:.3em;font-size:11px;font-weight:700;text-transform:uppercase}.stxw h2{font-size:clamp(30px,4.5vw,52px);font-weight:900;margin:12px 0 16px}.stxw p{color:#b9c4d8;line-height:1.6;font-size:17px}.stxw ul{list-style:none;padding:0;margin:24px 0 0}.stxw li{padding:14px 0;border-top:1px solid #1c2a45;color:#b9c4d8}.stxw li b{display:block;color:#fff;font-size:17px;margin-bottom:4px}
+.stxhome .stxg .big img{aspect-ratio:2.4/1}
+.stxpic{width:100%;border-radius:12px;margin-top:28px;display:block}.stxw{max-width:900px}
+.dkn{display:none}@media(max-width:820px){.dkn{display:block;text-align:center;font:600 13px system-ui;color:#c9d3e6;background:#0a1630;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.12)}}
+.dlb{background:#0b1426;padding:28px 20px 40px}.dlw{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:auto}
+.dlb a{display:flex;align-items:center;gap:14px;text-decoration:none;border-radius:999px;padding:16px 28px;font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s}
+.dlb b{display:block;font-size:17px;letter-spacing:.01em}.dlb small{display:block;font-size:12px;opacity:.75;margin-top:2px}
+.dl1{background:#ff6a13;color:#0b1426;box-shadow:0 10px 30px rgba(255,106,19,.35)}.dl1:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(255,106,19,.5)}
+.dl2{color:#fff;border:1px solid rgba(255,255,255,.28)}.dl2:hover{background:rgba(255,255,255,.08)}
+@media(max-width:600px){.dlb a{width:100%;justify-content:center;text-align:left}}
+</style>
+</head>
+<body>
+<header class="hero" id="hero" tabindex="-1">
+  <div class="bar"><span class="lgs"><img class="lt st" src="st-navy.png" alt="Stap Feelings"><img class="dk2 st" src="st-white.png" alt="Stap Feelings"><b class="sep"></b><img class="lt ya" src="ya-navy.png" alt="Yamaha"><img class="dk2 ya" src="ya-white.png" alt="Yamaha"></span><span>Náutica Day · 26 de novembro · Refúgio Cheiro de Mato</span></div>
+  <div class="intro ctr"><p class="kk">2 key visuals · um sistema</p><h1>Escolha o <em>KV.</em></h1><p class="sub"><span class="dk">Use as setas ou clique no KV para abrir a defesa e as peças.</span><span class="mb">Deslize e toque no KV para abrir a defesa e as peças.</span></p></div>
+  <div class="stage"><div id="ring"></div></div>
+  <button class="side l" id="sl" aria-label="Rota anterior">←</button><button class="side r" id="sr" aria-label="Próxima rota">→</button>
+  <div class="label" id="label"></div>
+</header>
+
+<section class="ch" id="simbolos"><div class="w">
+ <div class="rv"><p class="eyebrow">Vocabulário comum aos dois KVs</p><h2 class="h">Símbolos náuticos que dão identidade aos KVs</h2>
+ <p class="lead">Os key visuals não dependem só da foto. Uma camada de sinais do mundo da navegação dá ao Náutica Day um repertório próprio, que reaparece no cordão, na credencial, no kit e na cenografia.</p></div>
+ <div class="sym">
+  <div class="sy rv"><svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="0" y1="60" x2="200" y2="60" stroke-dasharray="3 4"/><line x1="100" y1="0" x2="100" y2="120" stroke-dasharray="3 4"/><circle cx="100" cy="60" r="7" fill="#f26a1b" stroke="none"/><circle cx="100" cy="60" r="20"/><text x="8" y="52" fill="currentColor" stroke="none" font-size="11" font-family="ArchivoV" font-weight="700">23°19’51.59”S</text><text x="108" y="112" fill="currentColor" stroke="none" font-size="11" font-family="ArchivoV" font-weight="700">46°39’21.31”W</text></svg>
+   <h3>Latitude e longitude</h3><p>As coordenadas marcam o ponto do evento no mapa, como num diário de bordo. Funcionam como um endereço náutico: dão precisão, criam mistério e convidam a pessoa a “navegar até lá”. Nas peças, viram texto nas bordas e no cordão.</p></div>
+  <div class="sy rv"><div class="flagrow"><i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f2"></i><i class="f6"></i><i class="f2"></i><em></em><i class="f5"></i><i class="f2"></i><i class="f1"></i></div><small>Y A M A H A · D A Y</small>
+   <h3>Bandeiras náuticas</h3><p>Usamos o Código Internacional de Sinais, a linguagem que barcos usam para se comunicar à distância. Em sequência, as bandeiras soletram YAMAHA DAY: uma mensagem escondida que quem conhece decifra, e quem não conhece lê como uma faixa de cor viva.</p></div>
+  <div class="sy rv"><svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M-10 90 C40 60 70 110 120 80 S190 50 210 70"/><path d="M-10 74 C40 44 70 94 120 64 S190 34 210 54"/><path d="M-10 58 C40 28 70 78 120 48 S190 18 210 38"/><path d="M-10 42 C40 12 70 62 120 32 S190 2 210 22"/><path d="M-10 106 C40 76 70 126 120 96 S190 66 210 86"/><text x="128" y="28" fill="currentColor" stroke="none" font-size="10" font-family="ArchivoV">-20 m</text><text x="20" y="114" fill="currentColor" stroke="none" font-size="10" font-family="ArchivoV">-5 m</text></svg>
+   <h3>Topografia e carta náutica</h3><p>As curvas de nível e as linhas de profundidade vêm das cartas náuticas, o mapa de quem navega. Aparecem como textura sutil sobre o mar e no verso da credencial, desenhando o território do evento sem competir com o título.</p></div>
+  <div class="sy rv"><svg viewBox="0 0 200 120" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="100" cy="60" r="52" stroke-dasharray="2 4"/><circle cx="100" cy="60" r="34"/><path d="M100 4 L108 60 L100 116 L92 60Z" fill="currentColor" opacity=".15"/><path d="M100 4 L108 60 L92 60Z" fill="#f26a1b" stroke="none"/><path d="M44 60 L100 52 L156 60 L100 68Z" fill="currentColor" opacity=".25"/></svg>
+   <h3>Rosa dos ventos e radar</h3><p>Os círculos de rosa dos ventos e de radar dão direção e movimento: apontam o rumo, organizam a composição e reforçam a ideia de destino. Nos KVs viram a grade de fundo; nas peças, um selo de navegação.</p></div>
+ </div></div></section>
+
+
+<p class="ft">Stap Feelings · Direção de arte: Kco Oyakawa · Peças apresentadas como mockups de conceito.</p>
+
+<button class="fx" id="fx" aria-label="Fechar rota">×</button>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Rota de key visual"></div>
+
+<script>
+{
+const KV=[
+ {id:"d",cls:"D",img:"kv-d.jpg",pos:"50% 45%",name:"Diário de Bordo",tag:"O lockup e uma faixa diagonal com as experiências do dia",
+  def:["O KV conta o dia em janelas. Uma faixa diagonal atravessa a peça como um rumo traçado na carta, e cada janela é uma experiência: a lancha navegando, a carta náutica, as WaveRunners, o rastro na água. Responde direto ao briefing: o Náutica Day não é um passeio, é um roteiro.",
+       "O fundo navy limpo, com o radar sutil e as listras de largada, deixa o título com leitura máxima. As tarjas NÁUTICA e DAY ganham o espaço todo, e data, local, coordenadas e bandeiras se organizam numa coluna própria.",
+       "As janelas são modulares: trocam por gastronomia, lounge ou test drive conforme a peça. O mesmo desenho funciona no totem, no story, no backdrop e no convite, sempre com o conteúdo certo para cada lugar."],
+  pro:["Mostra várias experiências","Título com leitura máxima","Sistema modular de janelas","Funciona do story ao painel"],
+  bg:"#0b1f4d",ink:"#fff",acc:"#f26a1b",rib2:"#f26a1b",rib2ink:"#0b1f4d"},
+ {id:"e",cls:"E",img:"kv-e.jpg",pos:"62% 50%",name:"Refúgio",tag:"Vista aérea do evento acontecendo, do píer ao lago",
+  def:["O KV mostra o lugar e o dia inteiro numa imagem só. Do alto, o Refúgio Cheiro de Mato aparece com o evento montado: lounge, palco, píer com as lanchas atracadas, WaveRunners saindo do píer em S e a lancha navegando ao fundo. O convidado vê que vai viver uma experiência completa, não um passeio.",
+       "O rastro em S, que já era a assinatura do caminho escolhido, continua lá, agora nascendo no evento. O título com as tarjas NÁUTICA e DAY ocupa a água escura, com o radar e as coordenadas sobre o lago.",
+       "É a rota mais emocional e a mais fiel ao dia real: golden hour, mata e água. Mantém o DNA aprovado e acrescenta o que faltava, o evento."],
+  pro:["Mostra o evento acontecendo","Mantém o rastro em S aprovado","Golden hour e lifestyle","Fiel ao lugar real"],
+  bg:"#0b1f4d",ink:"#fff",acc:"#f26a1b",rib2:"#f26a1b",rib2ink:"#0b1f4d"}
+];
+const $=s=>document.querySelector(s);
+const SYM=document.querySelector("#simbolos .sym").innerHTML.replace(/ in"/g,'"');
+const ring=$("#ring"),label=$("#label"),sheet=$("#sheet"),hero=$("#hero");
+const LIKE_API="https://abacus.jasoncameron.dev/";const NS="stap-yamaha-nauticaday-v2";
+let i=1,open=false,counts={d:0,e:0},mode=null,myVote=null,db=null,dbState="loading",timer=null,mx=0,my=0;
+const FL='<i class="f1"></i><i class="f2"></i><i class="f3"></i><i class="f2"></i><i class="f6"></i><i class="f2"></i><span style="width:8px"></span><i class="f5"></i><i class="f2"></i><i class="f1"></i>';
+const TOPO=`<svg class="topo" viewBox="0 0 100 150" preserveAspectRatio="none" fill="none" stroke="#9fc0ff" stroke-width=".5">${[0,1,2,3,4,5,6,7,8,9,10,11].map(n=>`<path d="M-5 ${18+n*11} C25 ${4+n*11} 45 ${34+n*11} 70 ${16+n*11} S105 ${6+n*11} 110 ${14+n*11}"/>`).join('')}<circle cx="74" cy="42" r="18"/><circle cx="74" cy="42" r="30" stroke-dasharray="1 2"/></svg>`;
+const cnt=id=>counts[id]||0;
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let bid=ls.get("nd-bid");if(!bid){bid="b"+Math.random().toString(36).slice(2)+Date.now().toString(36);ls.set("nd-bid",bid)}
+myVote=ls.get("nd-vote");
+const T=(a,b,cls="")=>`<span class="ttl a ${cls}">${a}</span><span class="ttl b ${cls}">${b}</span>`;
+
+/* carrossel */
+ring.innerHTML=KV.map((k,n)=>`<button class="card" data-n="${n}" aria-label="Abrir rota ${n+1}: ${k.name}"><img src="${k.img}" alt="Key visual rota ${n+1}, ${k.name}"><span class="vt" hidden></span></button>`).join('');
+const cards=[...ring.children];
+function layout(){
+  const sp=innerWidth<600?.8:.62;
+  cards.forEach((c,n)=>{let d=n-i;
+    c.style.transform=`translate(-50%,-46%) translate3d(${d*sp*100+mx*(d?14:6)}%,${my*(d?10:4)}px,${d?-520:0}px) rotateY(${d*-24+mx*-3}deg) scale(${d?.82:1})`;
+    c.style.zIndex=d?1:3;c.style.opacity=d?.62:1;c.classList.toggle("on",!d)});
+}
+function lbl(){const k=KV[i];cards.forEach(c=>{if(c.classList.contains('on')){c.style.setProperty('--x','1')}});label.innerHTML=`<div class="n">KV ${i+1} de ${KV.length}</div><h2>${k.name}</h2><p>${k.tag}</p><div class="ctrl"><span class="pips">${KV.map((_,n)=>`<i class="${n===i?'on':''}"></i>`).join('')}</span><button class="go" id="go">Abrir rota</button></div>`;$("#go").onclick=()=>openRoute()}
+function badges(){cards.forEach((c,n)=>{const v=c.querySelector(".vt");if(dbState==="ok"){v.hidden=false;const x=cnt(KV[n].id);v.textContent="♥ "+x}else v.hidden=true})}
+function go(n,user){i=(n+KV.length)%KV.length;layout();lbl();if(open)renderRoute(true);if(user)restart()}
+function restart(){clearInterval(timer);timer=setInterval(()=>{if(!open&&scrollY<innerHeight*.5&&!document.hidden)go(i+1)},6500)}
+ring.addEventListener("click",e=>{const c=e.target.closest(".card");if(!c)return;const n=+c.dataset.n;if(n===i)openRoute();else go(n,true)});
+$("#fx").onclick=()=>closeRoute();$("#sl").onclick=()=>go(i-1,true);$("#sr").onclick=()=>go(i+1,true);
+hero.addEventListener("pointermove",e=>{if(open||flipping)return;const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;layout()});
+hero.addEventListener("pointerleave",()=>{mx=my=0;layout()});
+let tx=null;hero.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passive:true});
+hero.addEventListener("touchend",e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)go(i+(d<0?1:-1),true);tx=null});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&open){e.preventDefault();closeRoute();return}
+  if(e.key==="ArrowRight"){e.preventDefault();go(i+1,true)}
+  if(e.key==="ArrowLeft"){e.preventDefault();go(i-1,true)}
+  if(e.key==="Enter"&&!open&&document.activeElement===hero){openRoute()}});
+addEventListener("resize",layout);
+let wl=0,acc=0;const stg=document.querySelector(".stage");
+stg.addEventListener("wheel",e=>{const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;e.preventDefault();acc+=d;const now=Date.now();
+  if(Math.abs(acc)>40&&now-wl>750){go(i+(acc>0?1:-1),true);wl=now;acc=0}clearTimeout(stg._t);stg._t=setTimeout(()=>acc=0,200)},{passive:false});
+hero.addEventListener("wheel",e=>{if(e.target.closest(".stage"))return;if(Math.abs(e.deltaX)>Math.abs(e.deltaY)&&Math.abs(e.deltaX)>30){e.preventDefault();const now=Date.now();if(now-wl>750){go(i+(e.deltaX>0?1:-1),true);wl=now}}},{passive:false});
+
+/* peças */
+function ribbons(k){
+  const front=`<div class="rib" style="background:${k.bg};color:${k.ink}"><div class="seq">${[0,1].map(()=>`
+    <span class="ya">YAMAHA</span><span class="dv"></span><span class="t">${T(`NÁUTICA`,`DAY`).replace('ttl b','ttl b" style="color:'+k.acc+'"').replace(/<\/span><span class="ttl b/,'</span>&nbsp;<span class="ttl b')}</span><span class="dv"></span>
+    <span class="fl">${FL}</span><span class="dv"></span><span class="co">23°19’51.59”S<br>46°39’21.31”W</span><span class="dv"></span><span class="co">26NOV · REFÚGIO<br>CHEIRO DE MATO</span><span class="dv"></span>`).join('')}</div></div>`;
+  const back=`<div class="rib" style="background:${k.rib2};color:${k.rib2ink}"><div class="rep">${Array(6).fill(`<span class="ttl">NÁUTICA DAY</span>`).join('')}</div></div>`;
+  return {front,back};
+}
+function lanyardSVG(k){
+  const b=k.bg,c=k.ink,o=k.acc;
+  return `<svg viewBox="0 0 220 360" aria-label="Cordão com credencial pendurada">
+   <defs><clipPath id="cc${k.id}"><rect x="58" y="210" width="104" height="150" rx="8"/></clipPath></defs>
+   <path d="M40 0 L92 196" stroke="${b}" stroke-width="22" stroke-linecap="square"/><path d="M180 0 L128 196" stroke="${b}" stroke-width="22" stroke-linecap="square"/>
+   <path d="M40 0 L92 196" stroke="${o}" stroke-width="2" stroke-dasharray="14 20" opacity=".9"/><path d="M180 0 L128 196" stroke="${o}" stroke-width="2" stroke-dasharray="14 20" opacity=".9"/>
+   <rect x="88" y="186" width="44" height="16" rx="3" fill="#20242c"/><path d="M110 200 v8" stroke="#9aa3b2" stroke-width="4"/><rect x="100" y="206" width="20" height="10" rx="5" fill="none" stroke="#9aa3b2" stroke-width="3"/>
+   <g clip-path="url(#cc${k.id})"><rect x="58" y="210" width="104" height="150" fill="${k.bg==='#f4f6f9'?'#0b1f4d':k.bg}"/><image href="${k.img}" x="-60" y="210" height="110" preserveAspectRatio="xMidYMid slice" width="340"/><rect x="58" y="320" width="104" height="40" fill="#fff"/>
+   <text x="66" y="236" fill="#fff" font-family="ArchivoV" font-weight="900" font-size="6" style="font-stretch:125%" letter-spacing="1">YAMAHA</text>
+   <text x="66" y="337" fill="#0b1f4d" font-family="ArchivoV" font-weight="900" font-size="9" style="font-stretch:118%">Ana Ribeiro</text><rect x="58" y="346" width="104" height="14" fill="${o}"/><text x="66" y="356" fill="#fff" font-family="ArchivoV" font-weight="900" font-size="6.5" letter-spacing="1">IMPRENSA</text></g>
+   <rect x="98" y="214" width="24" height="5" rx="2.5" fill="light-dark(#e3e6eb,#0d121c)" style="fill:var(--bg)"/>
+  </svg>`;
+}
+function cred(k,who,org,cat,col){
+  return `<div class="cr"><span class="slot"></span><div class="ph" style="background-image:url(${k.img});background-position:${k.pos}"><div class="tt"><span class="ya">YAMAHA</span>${T("NÁUTICA","DAY")}</div><div class="dt"><b>26NOV</b>Refúgio Cheiro de Mato</div></div>
+   <div class="nm"><b>${who}</b><span>${org}</span><span class="cat" style="background:${col}">${cat}</span></div></div>`;
+}
+function pieces(k){
+  return `<div class="pz rv"><div class="board mk"><img src="mk-${k.id}.jpg" alt="Prancha de mockups da rota ${k.name}: cordão, credencial e kit de bordo" onerror="this.closest('.board').classList.add('miss')"><p class="missmsg">Prancha de mockups em produção.</p></div>
+   <p class="note" style="margin-top:12px">Imagens geradas por IA apenas para ilustrar o desdobramento do KV, e podem conter erros de texto e de detalhes. As peças finais dependem da escolha do KV e da definição de quais itens serão criados e diagramados.</p></div>
+  <div class="pcs3 rv">
+   <div><p class="eyebrow">01 · Acessório</p><h3>Cordão para crachá</h3><p>Um acessório de marca, não uma faixa cheia de informação. Frente com o título, a assinatura Yamaha e as bandeiras; verso com o título em ritmo diagonal.</p><p class="spec"><span><b>Fita</b> poliéster 20 mm sublimada</span><span><b>Ferragem</b> mosquetão preto fosco</span></p></div>
+   <div><p class="eyebrow">02 · Credenciamento</p><h3>Crachá e credencial</h3><p>Frente com Yamaha, título, nome em destaque e faixa de categoria por cor: imprensa, convidado e staff. O verso vira carta náutica com programação, coordenadas, bandeiras e QR code.</p><p class="spec"><span><b>Formato</b> PVC 9,5 × 14 cm</span></p></div>
+   <div><p class="eyebrow">03 · Seeding</p><h3>Kit de bordo</h3><p>Um kit que a pessoa quer usar depois do evento, com o nome de quem recebe: sacola náutica, dry pouch, toalha compacta, garrafa, convite em cartão de embarque, cartão das bandeiras e chaveiro flutuante.</p></div>
+  </div>`;
+}
+function voteBox(){const k=KV[i],liked=!!ls.get("nd-like-"+k.id),c=cnt(k.id);
+  return `<div class="vote like"><h3>Curtiu esta rota?</h3><p>Deixe seu like. Um por navegador, e as curtidas aparecem para todo mundo.</p>
+  <button class="lk ${liked?'on':''}" id="vb" aria-pressed="${liked}"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4l1 1.5 1-1.5c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg><span>${liked?'Você curtiu':'Curtir'}</span><b>${dbState==="ok"?c:'·'}</b></button>
+  <div class="tal">${KV.map((x,n)=>`<div class="row ${ls.get("nd-like-"+x.id)?'me':''}"><span>Rota ${n+1} · ${x.name}</span><b>${dbState==="ok"?cnt(x.id):'–'} ♥</b></div>`).join('')}</div></div>`}
+function bindVote(){const b=$("#vb");if(b)b.onclick=()=>cast(KV[i].id)}
+
+const PCS={"d": [{"t": "Pórtico de entrada", "d": "Só lettering e ícones: o lockup na viga, data e coordenadas numa coluna, rosa dos ventos e as bandeiras YAMAHA DAY na outra. É o mesmo nos dois KVs e abre o caminho do convidado até o deck.", "sp": [["Formato", "4 × 3,5 m"], ["Material", "estrutura com lona tensionada"]], "img": "pd-portico.jpg", "w": 1671, "h": 941}, {"t": "Backdrop / palco", "d": "O KV em janelas em escala, atrás do palco das apresentações e das fotos.", "sp": [["Formato", "8 × 3 m"], ["Material", "lona com iluminação frontal"]], "img": "pd-palco.jpg", "w": 1672, "h": 941}, {"t": "Wind banners e totem", "d": "Trio de wind banners navy e laranja na margem e o totem de boas-vindas com o KV, a data e as coordenadas.", "sp": [["Wind banner", "pena 3,5 m, tecido sublimado"], ["Totem", "2 × 0,8 m, ACM com LED na base"]], "img": "pd-sinal.jpg", "w": 1671, "h": 941}, {"t": "Credencial", "d": "Frente com o lockup e o radar e a rosa dos ventos, nome e função; verso com a programação, QR, coordenadas e bandeiras.", "sp": [["Formato", "PVC 9,5 × 14 cm"]], "img": "pd-cred.jpg", "w": 1672, "h": 941}, {"t": "Convite e redes", "d": "Convite digital, story e agenda do dia, com cada experiência ganhando a sua tela.", "sp": [["Formatos", "1080 × 1920 · 1080 × 1350"]], "img": "pd-digital.jpg", "w": 1671, "h": 941}, {"t": "Cordão", "d": "Navy na frente, com Yamaha, o lettering, as bandeiras YAMAHA DAY, data e local; laranja no verso, com o pattern NÁUTICA DAY.", "sp": [["Fita", "poliéster 25 mm"], ["Técnica", "sublimação"]], "img": "c4-cordao.jpg", "w": 1200, "h": 800}, {"t": "Camisetas", "d": "Navy com as tarjas no peito e as listras na lateral; laranja com o radar nas costas, a data e as bandeiras.", "sp": [["Base", "algodão 200 g, oversized"], ["Técnica", "silk em 2 cores"]], "img": "pz-c-camisetas.jpg", "w": 1200, "h": 799}, {"t": "Bonés", "d": "Navy e branco com o lockup bordado na frente.", "sp": [["Modelo", "dad hat 6 gomos"], ["Técnica", "bordado"]], "img": "cn-c-caps.jpg", "w": 1200, "h": 800}, {"t": "Lycra UV", "d": "Para quem vai pilotar: navy com as listras de largada nas mangas; laranja com o radar nas costas.", "sp": [["Base", "lycra FPU 50+"], ["Técnica", "sublimação"]], "img": "pz-c-lycra.jpg", "w": 1400, "h": 933}, {"t": "Kit de bordo", "d": "Caixa, dry bag, garrafa, toalha, boné, chaveiro flutuante e ingresso, tudo no mesmo sistema.", "sp": [["Itens", "8 peças"]], "img": "pz-c-kit.jpg", "w": 1400, "h": 933}], "e": [{"t": "Pórtico de entrada", "d": "Só lettering e ícones: o lockup na viga, data e coordenadas numa coluna, rosa dos ventos e as bandeiras YAMAHA DAY na outra. É o mesmo nos dois KVs e abre o caminho do convidado até o deck.", "sp": [["Formato", "4 × 3,5 m"], ["Material", "estrutura com lona tensionada"]], "img": "pd-portico.jpg", "w": 1671, "h": 941}, {"t": "Backdrop / palco", "d": "O KV aéreo em escala, atrás do palco das apresentações e das fotos.", "sp": [["Formato", "8 × 3 m"], ["Material", "lona com iluminação frontal"]], "img": "pe-palco.jpg", "w": 1671, "h": 941}, {"t": "Wind banners e totem", "d": "Trio de wind banners navy e laranja na margem e o totem de boas-vindas com o KV, a data e as coordenadas.", "sp": [["Wind banner", "pena 3,5 m, tecido sublimado"], ["Totem", "2 × 0,8 m, ACM com LED na base"]], "img": "pe-sinal.jpg", "w": 1672, "h": 941}, {"t": "Credencial", "d": "Frente com o lockup e o recorte aéreo do KV, nome e função; verso com a programação, QR, coordenadas e bandeiras.", "sp": [["Formato", "PVC 9,5 × 14 cm"]], "img": "pe-cred.jpg", "w": 1671, "h": 941}, {"t": "Convite e redes", "d": "Convite digital, story e agenda do dia, com cada experiência ganhando a sua tela.", "sp": [["Formatos", "1080 × 1920 · 1080 × 1350"]], "img": "pe-digital.jpg", "w": 1670, "h": 941}, {"t": "Cordão", "d": "Navy na frente, com Yamaha, o lettering, as bandeiras YAMAHA DAY, data e local; laranja no verso, com o pattern NÁUTICA DAY.", "sp": [["Fita", "poliéster 25 mm"], ["Técnica", "sublimação"]], "img": "c4-cordao.jpg", "w": 1200, "h": 800}, {"t": "Camisetas", "d": "Navy com as tarjas no peito e as listras na lateral; laranja com o radar nas costas, a data e as bandeiras.", "sp": [["Base", "algodão 200 g, oversized"], ["Técnica", "silk em 2 cores"]], "img": "pz-c-camisetas.jpg", "w": 1200, "h": 799}, {"t": "Bonés", "d": "Navy e branco com o lockup bordado na frente.", "sp": [["Modelo", "dad hat 6 gomos"], ["Técnica", "bordado"]], "img": "cn-c-caps.jpg", "w": 1200, "h": 800}, {"t": "Lycra UV", "d": "Para quem vai pilotar: navy com as listras de largada nas mangas; laranja com o radar nas costas.", "sp": [["Base", "lycra FPU 50+"], ["Técnica", "sublimação"]], "img": "pz-c-lycra.jpg", "w": 1400, "h": 933}, {"t": "Kit de bordo", "d": "Caixa, dry bag, garrafa, toalha, boné, chaveiro flutuante e ingresso, tudo no mesmo sistema.", "sp": [["Itens", "8 peças"]], "img": "pz-c-kit.jpg", "w": 1400, "h": 933}]};
+const STX=[["hero","Identidade no produto","WaveRunner com NÁUTICA DAY no casco, como marcação de fábrica. O hero da ativação."],["deck","Stencil no deck","NÁUTICA DAY, setas e linhas de velocidade no piso: a circulação vira mídia."],["boia","Boias de amarração","Navy com lettering branco e laranja de sinalização, instaladas no lago."],["caixa","Caixas de operação","Cases e baús com marcações, coordenadas e códigos de bordo."],["lounge","Lounge náutico","Tambores e mobiliário industrial como apoio e ambientação."],["pintura","Pintura ao vivo","O lettering aplicado no casco de uma WaveRunner diante dos convidados, com gabarito e máscara removível."],["lab","Stencil Lab","O convidado escolhe placa, tag ou mini case e leva a peça marcada."],["colecao","Coleção marca de bordo","Coletes e dry bags com personalização das iniciais."],["bandeiras","Cenografia: bandeiras náuticas","Fileira no píer soletrando YAMAHA · DAY com as bandeiras reais do Código Internacional de Sinais. O vento faz parte da cena."]];
+function stxSec(k){const ac={a:"Branco gasto sobre navy, com respingos da aquarela azul e laranja da rota.",b:"Branco gasto sobre navy e turquesa, com as linhas de contorno da carta.",c:"Branco gasto sobre navy, com as listras diagonais laranja de largada e o radar."}[k.id];
+return `<section class="stx"><div class="stxw rv"><p class="eyebrow">Sobre o lettering</p><h2>Por que stencil</h2><p>O stencil é a letra do mundo náutico: nome de embarcação, número de casco, caixa de carga, equipamento de bordo. Pintado no casco, o título parece ter nascido ali. Com desgaste, gotas e sol, a marca continua legível e ganha verdade.</p><ul><li><b>Vira ativação</b>Casco, píer, boias, caixas e bandeirolas no Refúgio.</li><li><b>Pintura ao vivo</b>Com gabarito, na hora, diante dos convidados.</li><li><b>Uma cor, sem degradê</b>Silk, bordado, laser e vinil.</li><li><b>Liga ao produto</b>Parece marcação de fábrica de uma WaveRunner.</li></ul></div><div class="stxh rv"><p class="eyebrow">Conceito de ativação · Stencil Experience</p><h2>A marca que<br>ocupa o território</h2><p>O stencil sai do casco da WaveRunner e passa a ocupar todo o ambiente: deck, lago, operação, convivência e experiência. Nesta rota: ${ac}</p></div><div class="stxg">${STX.map((x,n)=>`<figure class="${n===0?'big':''}"><img src="stx/${x[0]}.jpg?v=3" alt="${x[1]}" loading="lazy"><figcaption><b>${x[1]}</b><span>${x[2]}</span></figcaption></figure>`).join("")}</div><div class="stxr"><span>Tinta branca desgastada</span><span>Laranja como sinalização</span><span>Textura de uso real</span><span>Linhas de velocidade</span></div></section>`}
+function renderB(keep){const k=KV[i],nx=KV[(i+1)%KV.length];
+ sheet.classList.add("rB");
+ sheet.innerHTML=`<div class="top"><button id="bk">← Voltar<kbd>Esc</kbd></button><span class="nm">Rota ${i+1} · ${k.name}</span><span class="nv"><button id="rp" aria-label="Rota anterior">←</button><button id="rn" aria-label="Próxima rota">→</button></span></div>
+ <div class="hero2"><img id="h2img" src="${k.img}" alt="Key visual rota ${i+1}, ${k.name}"></div><div class="sc2">Defesa e peças<i></i></div>
+ <section class="stmt rv"><span class="k">Rota ${i+1} · ${k.tag}</span><h2 class="big">${k.name}</h2></section>
+ <div class="ed">${k.def.map((p,n)=>`<div class="rv"><span class="n">0${n+1}</span><p>${p}</p></div>`).slice(0,2).join('')}
+  <div id="vbox" class="rv">${voteBox()}</div>
+  <div class="rv c12"><span class="n">03</span><p>${k.def[2]}</p></div>
+  <div class="pfl rv">${k.pro.map(x=>`<span>${x}</span>`).join('')}</div></div>
+ <section class="pz2"><div class="hd rv"><h2>O KV<br>no evento</h2><p>O key visual vira uma família de peças. As que levam a imagem mudam com o KV; o merch carrega só o lockup e os códigos náuticos, e é o mesmo nos dois.</p></div>
+  ${PCS[k.id].map((x,n)=>`<div class="pc${x.tall?' tall':''}"><div class="im"><img src="${x.img}?v=1117" alt="${x.t}" width="${x.w}" height="${x.h}" loading="${n<3?'eager':'lazy'}" decoding="async" onload="this.classList.add('ok')"></div><div class="tx"><span class="no">0${n+1}</span><h3>${x.t}</h3><p>${x.d}</p><div class="sp">${x.sp.map(a=>`<span><b>${a[0]}</b> ${a[1]}</span>`).join('')}</div></div></div>`).join('')}
+  <p class="aiN">Artes em vetor aplicadas sobre fotos de ambiente geradas para simulação. As peças finais dependem da escolha do KV.</p></section>
+ 
+ <section class="ch voc"><div class="w"><div class="rv"><p class="eyebrow">Vocabulário comum aos dois KVs</p><h2 class="h">Códigos e ícones náuticos no KV</h2></div><div class="sym">${SYM}</div></div></section>
+ <div class="dlb"><div class="dlw"><a class="dl1" href="downloads/KV-Nautica-Day-${k.id}.jpg" download="KV Yamaha Nautica Day - Rota ${i+1} ${k.name}.jpg"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 10l6 6 6-6M4 21h16"/></svg><span><b>Baixar KV</b></span></a></div></div>
+ <button class="nxt" id="nxt"><img src="${nx.img}" alt=""><span class="in2"><span><small>Outro KV</small><b>${nx.name}</b></span><span class="ar">→</span></span></button>`;
+ $("#bk").onclick=closeRoute;$("#rp").onclick=()=>go(i-1,true);$("#rn").onclick=()=>go(i+1,true);$("#nxt").onclick=()=>go(i+1,true);
+ bindVote();if(!keep)sheet.scrollTop=0;else sheet.scrollTo({top:0,behavior:"smooth"});observe();
+ const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io2.unobserve(e.target)}}),{root:sheet,rootMargin:"0px 0px 20% 0px",threshold:0});sheet.querySelectorAll(".pc").forEach(el=>io2.observe(el));
+}
+
+function plx2(){if(!open||!sheet.classList.contains("rB"))return;const H=innerHeight;
+ sheet.querySelectorAll(".pc").forEach((pc,n)=>{const r=pc.getBoundingClientRect();if(r.bottom<-200||r.top>H+200)return;const c=(r.top+r.height/2-H/2)/H;
+  const im=pc.querySelector(".im"),img=pc.querySelector(".im img"),no=pc.querySelector(".no"),tx=pc.querySelector(".tx");
+  im.style.transform=`translate3d(0,${c*-60}px,0)`;img.style.transform=`translate3d(0,${c*50}px,0) scale(1.12)`;
+  no.style.transform=`translate3d(0,${c*-50}px,0)`;tx.style.transform=`translate3d(0,${c*40}px,0)`});
+ const st=sheet.querySelector(".stmt .big");if(st){const r=st.getBoundingClientRect();st.style.transform=`translate3d(0,${(r.top-H/2)/H*-30}px,0)`}
+ const h=sheet.querySelector("#h2img");if(h){const y=sheet.scrollTop;h.style.transform=`translate3d(0,${y*.35}px,0) scale(${1+y/4000})`}}
+let tk2=false;sheet.addEventListener("scroll",()=>{if(!tk2){tk2=true;requestAnimationFrame(()=>{plx2();tk2=false})}},{passive:true});
+function renderRoute(keep){const k=KV[i];sheet.classList.remove("rB");return renderB(keep);
+  sheet.innerHTML=`<div class="top"><button id="bk">← Voltar<kbd>Esc</kbd></button><span class="nm">Rota ${i+1} · ${k.name}</span><span class="nv"><button id="rp" aria-label="Rota anterior">←</button><button id="rn" aria-label="Próxima rota">→</button></span></div>
+  <section class="ch"><div class="w g2"><div class="def rv"><p class="eyebrow">Rota ${i+1} · ${k.tag}</p><h2 class="h">${k.name}</h2>${k.def.map(p=>`<p>${p}</p>`).join('')}
+   <div class="pf"><h4>Pontos fortes</h4><ul>${k.pro.map(x=>`<li>${x}</li>`).join('')}</ul></div></div><div id="vbox" class="rv">${voteBox()}</div></div></section>
+  <div class="full"><figure class="rv"><img src="${k.img}" alt="Key visual completo, rota ${i+1}, ${k.name}"><figcaption>Key visual completo · Rota ${i+1}, ${k.name}</figcaption></figure></div>
+  <section class="ch voc"><div class="w"><div class="rv"><p class="eyebrow">Vocabulário comum aos dois KVs</p><h2 class="h">Códigos e ícones náuticos no KV</h2><p class="lead">Coordenadas, bandeiras de sinalização, topografia de carta náutica e rosa dos ventos aparecem nos dois KVs. É essa camada que dá identidade ao Náutica Day além da foto.</p></div><div class="sym">${SYM}</div></div></section>
+  <section class="ch" style="padding-top:clamp(40px,6vw,80px)"><div class="w"><div class="rv"><p class="eyebrow">Desdobramentos</p><h2 class="h" style="margin:0 0 12px">Do key visual às peças do evento</h2><p class="lead">O KV não é colado em tudo: ele vira uma família visual. Cordão, credencial e kit de bordo nesta rota.</p></div>${pieces(k)}</div></section>
+  <p class="ft">Esc ou “Voltar” para retornar ao carrossel · ← → para trocar de rota</p>`;
+  $("#bk").onclick=closeRoute;$("#rp").onclick=()=>go(i-1,true);$("#rn").onclick=()=>go(i+1,true);
+  bindVote();if(!keep)sheet.scrollTop=0;else sheet.scrollTo({top:0,behavior:"smooth"});observe();
+}
+let flipping=false;
+function preRoute(id){(PCS[id]||[]).forEach(function(x){var i=new Image();i.decoding="async";i.src=x.img+"?v=1117"})}
+async function openRoute(){if(flipping)return;try{preRoute(KV[i].id)}catch(e){}const card=cards[i],RMm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+ clearInterval(timer);open=true;renderRoute();sheet.classList.remove("rt-a","rt-b","rt-c");sheet.classList.add("rt-"+KV[i].id);
+ try{history.replaceState(null,"","#rota-"+KV[i].id)}catch(e){}
+ if(!card||RMm){sheet.classList.add("open");document.body.classList.add("lock");return}
+ flipping=true;
+ const src=card.querySelector("img"),h2=sheet.querySelector("#h2img");
+ try{await Promise.all([src.decode(),h2?h2.decode():0])}catch(e){}
+ const r=card.getBoundingClientRect();
+ sheet.classList.add("instant","open");sheet.style.opacity="0";document.body.classList.add("lock");sheet.scrollTop=0;
+ const topH=(sheet.querySelector(".top")||{}).offsetHeight||(innerWidth<600?58:66);
+ const hb=h2?h2.getBoundingClientRect():{left:0,top:topH,width:innerWidth,height:Math.min(innerWidth*9/16,innerHeight-topH)};
+  const c=document.createElement("div");c.className="flipc";const im=src.cloneNode();im.removeAttribute("style");im.className="";c.appendChild(im);
+ Object.assign(c.style,{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",borderRadius:"10px"});
+ document.body.appendChild(c);card.style.visibility="hidden";
+ const D=900,E="cubic-bezier(.65,0,.25,1)";
+ const sa=sheet.animate([{opacity:0},{opacity:1}],{duration:D*.55,delay:D*.35,easing:"ease-out",fill:"forwards"});
+ im.animate([{transform:"scale(1.08)"},{transform:"scale(1)"}],{duration:D,easing:E,fill:"forwards"});
+ const an=c.animate([{left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",borderRadius:"10px",boxShadow:"0 30px 60px rgba(0,0,0,.35)"},
+   {left:hb.left+"px",top:hb.top+"px",width:hb.width+"px",height:hb.height+"px",borderRadius:"0px",boxShadow:"0 0 0 rgba(0,0,0,0)"}],{duration:D,easing:E,fill:"forwards"});
+ await an.finished;
+ sheet.style.opacity="";sa.cancel();
+ await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ sheet.classList.remove("instant");
+ c.animate([{opacity:1},{opacity:0}],{duration:220,fill:"forwards"}).onfinish=()=>c.remove();
+ card.style.visibility="";flipping=false;
+ sheet.querySelectorAll(".stmt,.sc2").forEach((el,n)=>el.animate([{opacity:0,transform:"translateY(30px)"},{opacity:1,transform:"none"}],{duration:700,delay:n*80,easing:"cubic-bezier(.2,.8,.15,1)",fill:"backwards"}));
+ setTimeout(()=>$("#bk")&&$("#bk").focus({preventScroll:true}),300);
+}
+function closeRoute(){open=false;restart();sheet.classList.remove("open");document.body.classList.remove("lock");try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}hero.focus({preventScroll:true});scrollTo({top:0,behavior:"smooth"})}
+function refreshVote(){if(typeof sum==="function")sum();const v=$("#vbox");if(v){v.innerHTML=voteBox();bindVote()}badges()}
+let busy=false;
+async function cast(id){if(busy||ls.get("nd-like-"+id))return;busy=true;
+  ls.set("nd-like-"+id,"1");counts[id]=cnt(id)+1;refreshVote();
+  try{const r=await fetch(LIKE_API+"hit/"+NS+"/rota-"+id);const j=await r.json();if(j&&j.value!=null){counts[id]=+j.value;dbState="ok"}}catch(e){}
+  refreshVote();busy=false}
+async function pull(){const r=await Promise.all(KV.map(k=>fetch(LIKE_API+"get/"+NS+"/rota-"+k.id).then(r=>r.status===404?{value:0}:r.ok?r.json():null).catch(()=>null)));
+  if(r.every(x=>x===null))throw 0;KV.forEach((k,n)=>{if(r[n])counts[k.id]=+r[n].value||0});dbState="ok";refreshVote()}
+/* reveal + parallax */
+const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1}):null;
+function observe(){document.querySelectorAll(".rv:not(.in)").forEach(el=>io?io.observe(el):el.classList.add("in"))}
+function plx(){document.querySelectorAll("[data-plx]").forEach(im=>{const r=im.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;im.style.transform=`translate3d(0,${(r.top+r.height/2-innerHeight/2)*-im.dataset.plx}px,0)`})}
+let tk=false;addEventListener("scroll",()=>{if(!tk){tk=true;requestAnimationFrame(()=>{plx();tk=false})}},{passive:true});
+
+const m=location.hash.match(/^#rota-([de])$/);if(m)i=KV.findIndex(k=>k.id===m[1]);
+const sumg=$("#sumg");function sum(){if(!sumg)return;sumg.innerHTML=KV.map((k,n)=>`<button class="sc rv in" data-n="${n}"><img src="${k.img}" alt="KV rota ${n+1}"><img class="mk2" src="mk-${k.id}.jpg" alt="Aplicações rota ${n+1}" loading="lazy"><span class="tx"><small>Rota ${n+1}</small><b>${k.name}</b><span>${k.tag}</span><em>♥ ${dbState==="ok"?cnt(k.id):"–"} · Ver rota →</em></span></button>`).join('')}
+if(sumg)sumg.addEventListener("click",e=>{const b=e.target.closest(".sc");if(!b)return;i=+b.dataset.n;layout();lbl();openRoute()});sum();
+layout();lbl();observe();restart();if(m)openRoute();
+setTimeout(()=>{try{if(!open)hero.focus({preventScroll:true})}catch(e){}},300);
+
+(async()=>{try{await pull();setInterval(()=>{if(!document.hidden)pull().catch(()=>{})},20000)}catch(e){dbState="off";refreshVote()}})();
+}
+
+</script>
+<button class="snd" id="snd" aria-pressed="false" aria-label="Ligar ou desligar a trilha"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="sndt">Trilha ligada</span></button>
+<audio id="trk" src="trilha.mp3" loop preload="auto"></audio>
+<script>
+(()=>{const a=document.getElementById("trk"),b=document.getElementById("snd"),t=document.getElementById("sndt");a.volume=.55;
+const ST=[0,174,399,632];let last=-1;try{last=+localStorage.getItem("nd-faixa")}catch(e){}
+let pick=(isNaN(last)||last<0)?Math.floor(Math.random()*ST.length):(last+1)%ST.length;try{localStorage.setItem("nd-faixa",pick)}catch(e){}
+const seek=()=>{try{a.currentTime=ST[pick]}catch(e){}};if(a.readyState>=1)seek();else a.addEventListener("loadedmetadata",seek,{once:true});let fixed=false;a.addEventListener("playing",()=>{if(fixed)return;fixed=true;if(Math.abs(a.currentTime-ST[pick])>3)seek()});
+let off=false;try{off=localStorage.getItem("nd-som")==="off"}catch(e){}
+const ui=()=>{const on=!a.paused;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on);t.textContent=on?"Desligar trilha":(off?"Ligar trilha":"Toque para ouvir")};
+const play=()=>{if(off)return;a.play().then(ui).catch(ui)};
+a.addEventListener("play",ui);a.addEventListener("pause",ui);
+b.addEventListener("click",e=>{e.stopPropagation();if(a.paused){off=false;try{localStorage.removeItem("nd-som")}catch(_){}a.play().catch(()=>{})}else{off=true;try{localStorage.setItem("nd-som","off")}catch(_){}a.pause()}ui()});
+const EV=["pointerdown","pointerup","touchend","click","keydown"];const first=e=>{if(e&&e.target&&e.target.closest&&e.target.closest("#snd"))return;if(off||!a.paused){EV.forEach(ev=>removeEventListener(ev,first,true));return}a.play().then(()=>{EV.forEach(ev=>removeEventListener(ev,first,true));ui()}).catch(()=>{})};
+EV.forEach(ev=>addEventListener(ev,first,{capture:true,passive:true}));
+play();ui();
+document.addEventListener("visibilitychange",()=>{if(document.hidden){a.dataset.w=a.paused?"":"1";a.pause()}else if(a.dataset.w)a.play().catch(()=>{})});
+})();
+</script>
+
+<script>
+window.addEventListener("load",function(){setTimeout(function(){try{KV.forEach(function(k){PCS[k.id].slice(0,3).forEach(function(x){var m=new Image();m.src=x.img+"?v=1117"})})}catch(e){}},1500)});
+(function(){
+ var T='nd-kco-7f3k-aviso',ls={};try{ls=localStorage}catch(e){}
+ if(/[?&]eu\b/.test(location.search)){try{ls['nd-eu']='1'}catch(e){}}
+ var eu=ls['nd-eu']==='1';
+ function badge(n){var b=document.createElement('div');b.textContent=n+' visitas';b.style.cssText='position:fixed;left:50%;transform:translateX(-50%);top:max(8px,env(safe-area-inset-top));z-index:9999;pointer-events:none;background:#0a1630;color:#fff;font:600 12px system-ui;padding:6px 10px;border-radius:20px;opacity:.85';document.body.appendChild(b)}
+ if(eu){fetch('https://abacus.jasoncameron.dev/get/nd-kco-7f3k/visitas-v2').then(function(r){return r.json()}).then(function(d){badge(d.value)}).catch(function(){});return}
+ try{if(sessionStorage['nd-v'])return;sessionStorage['nd-v']='1'}catch(e){}
+ fetch('https://abacus.jasoncameron.dev/hit/nd-kco-7f3k/visitas-v2').then(function(r){return r.json()}).then(function(d){
+  var dev=/iPhone|Android|Mobile/i.test(navigator.userAgent)?'celular':'computador';
+  fetch('https://ntfy.sh/'+T,{method:'POST',body:'v2 · Visita #'+d.value+' ('+dev+')',headers:{'Title':'Alguem abriu o link','Tags':'eyes'}}).catch(function(){});
+ }).catch(function(){});
+})();
+</script>
+
+</body>
+</html>
