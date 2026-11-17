@@ -558,7 +558,7 @@ let flipping=false;
 function preRoute(id){(PCS[id]||[]).forEach(function(x){var i=new Image();i.decoding="async";i.src=x.img+"?v=1117"})}
 async function openRoute(){if(flipping)return;try{preRoute(KV[i].id)}catch(e){}const card=cards[i],RMm=matchMedia("(prefers-reduced-motion: reduce)").matches;
  clearInterval(timer);open=true;renderRoute();sheet.classList.remove("rt-a","rt-b","rt-c");sheet.classList.add("rt-"+KV[i].id);
- try{history.replaceState(null,"","#rota-"+KV[i].id)}catch(e){}
+ try{history.replaceState(null,"",location.pathname+"#rota-"+KV[i].id)}catch(e){}
  if(!card||RMm){sheet.classList.add("open");document.body.classList.add("lock");return}
  flipping=true;
  const src=card.querySelector("img"),h2=sheet.querySelector("#h2img");
