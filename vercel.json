@@ -31,22 +31,22 @@
  "redirects": [
   {
    "source": "/",
-   "destination": "/v2/",
+   "destination": "/v3/",
    "permanent": false
   },
   {
    "source": "/index.html",
-   "destination": "/v2/",
+   "destination": "/v3/",
    "permanent": false
   },
   {
    "source": "/_arquivo/:path*",
-   "destination": "/v2/",
+   "destination": "/v3/",
    "permanent": false
   },
   {
    "source": "/previa.html",
-   "destination": "/v2/",
+   "destination": "/v3/",
    "permanent": false
   }
  ]
